@@ -32,74 +32,57 @@ methods = ['.']
 
 def layout(prodcode=['Wood']):
   return html.Div(
-    className='content-box',
     children=[
-      html.H3("Information on our Dashboard"),
-      dcc.Markdown(
-        'In this project, we developed a data product to help consumers visualise and understand price changes of certain goods and services (G&S) in Singapore. By integrating the data we obtained from conducting the news sentiment analysis, we can further analyse how events around the world affect prices in Singapore, thereby helping us to predict future price changes when a significant event occurs.'
-      ),
-      html.Div(children=[
-        html.P("Objectives:"),
-        html.Ul(id='obj-list', children=[html.Li(i) for i in objectives])
-      ]),
-      html.Div(children=[
-        html.P("Methods Employed in our Dashboard"),
-        html.Ul(id='methods-list', children=[html.Li(i) for i in methods])
-      ]),
-      html.Div(children=[
-        html.H1(children="Geospatial graph of Exports and Imports"),
-        html.Div(children=[
-          dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown'),
-          dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown'),
+      html.Div(
+        className='content-box', 
+        children=[
+          html.H3("Project Details"),
+          dcc.Markdown(
+            'In this project, we developed a data product to help consumers visualise and understand price changes of certain goods and services (G&S) in Singapore. By integrating the data we obtained from conducting the news sentiment analysis, we can further analyse how events around the world affect prices in Singapore, thereby helping us to predict future price changes when a significant event occurs.'
+          ),
           html.Div(children=[
-            dcc.RadioItems(
-              ['Export', 'Import'], 'Export', id='ind-network-dropdown')
+            html.P("Objectives:"),
+            html.Ul(id='obj-list', children=[html.Li(i) for i in objectives])
           ]),
-        ],
-                 style={"width": "25%"})
-      ],
-               className="geospatial-options"),
-      html.Div(children=[
-        html.Div(children=[dcc.Graph(id='geospatial-network')], ),
-        html.Div(children=[dcc.Graph(id='sunburst')], ),
-      ],
-               style={
-                 'display': 'inline-block',
-                 "margin": 0,
-                 'width': '100%'
-               },
-               className="geospatial-graph"),
-      html.Div(children=[
-        html.H1(children="Percentage of Exports and Imports"),
+          # html.Div(children=[
+          #   html.P("Methods Employed in our Dashboard"),
+          #   html.Ul(id='methods-list', children=[html.Li(i) for i in methods])
+          # ]),
+          ]),
+      html.Div(
+        className='content-box', 
+        # style={"width": "25%"},
+        children=[
+        html.H3(children="Percentage of Exports and Imports"),
         html.Div(children=[
           html.Div(children=[
             dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown1')
-          ],
-                   style={"width": "25%"}),
+          ]),
         ]),
-      ],
-               className="pie-trade-dropdown"),
+      ]),
       html.Div(children=[
         html.Div(children=[dcc.Graph(id="pie-graph-tradereliance")]),
       ],
-               className="pie-trade-graph"),
+               className='content-box',),
       html.Div(children=[
-        html.H1(children="Exports and Imports over time"),
+        html.H3(children="Exports and Imports over time"),
         html.Div(children=[
           dcc.Dropdown(country_list, 'Malaysia', id='country-lineg-dropdown')
         ],
-                 style={"width": "25%"}),
+                #  style={"width": "25%"}
+                 ),
       ],
-               className="country-line-dropdown"),
+               className='content-box', ),
       html.Div(children=[
         html.Div(children=[dcc.Graph(id="line-graph-trade")],
-                 style={
-                   'display': 'inline-block',
-                   "margin": 0,
-                   'width': '100%'
-                 }),
+                #  style={
+                #    'display': 'inline-block',
+                #    "margin": 0,
+                #    'width': '100%'
+                #  }
+                 ),
       ],
-               className="country-line"),
+               className='content-box', ),
       html.Div(children=[
         html.Div(children=[
           dcc.Dropdown(prodcode, prodcode[0], id='pc-lineg-dropdown'),
@@ -108,38 +91,40 @@ def layout(prodcode=['Wood']):
                          id="checklist-pc",
                          inline=True)
         ],
-                 style={"width": "25%"}),
+                #  style={"width": "25%"}
+                 ),
       ],
-               className="pc-line-dropdown"),
+               className='content-box', ),
       html.Div(children=[
         html.Div(children=[dcc.Graph(id="pc-line-graph-trade")],
-                 style={
-                   'display': 'inline-block',
-                   "margin": 0,
-                   'width': '100%'
-                 }),
+                #  style={
+                #    'display': 'inline-block',
+                #    "margin": 0,
+                #    'width': '100%'
+                #  }
+                 ),
       ],
-               className="pc-line"),
+               className='content-box', ),
       html.Div(children=[
         html.H1(children="Products traded in Singapore"),
         html.Div(children=[dcc.Graph(id="line-graph-timeseries")],
-                 style={
-                   'display': 'inline-block',
-                   "margin": 0,
-                   'width': '100%'
-                 },
-                 className="line-graph-dropdown"),
+                #  style={
+                #    'display': 'inline-block',
+                #    "margin": 0,
+                #    'width': '100%'
+                #  },
+                 className='content-box', ),
         html.Div(children=[
           dcc.Dropdown(id="checklist",
                        options=b.product_codes(),
                        value=["Fuels", "Manufactures"],
                        multi=True)
         ],
-                 style={
-                   "width": "25%",
-                   'display': 'inline-block'
-                 },
-                 className="line-graph"),
+                #  style={
+                #    "width": "25%",
+                #    'display': 'inline-block'
+                #  },
+                 className='content-box', ),
       ]),
       html.Div(children=[
         html.H1(children="Trading partners of Singapore"),
@@ -149,16 +134,16 @@ def layout(prodcode=['Wood']):
                          id="c-checklist-pc",
                          inline=True)
         ],
-                 style={"width": "25%"},
-                 className="pc-checklist"),
+                #  style={"width": "25%"},
+                 className='content-box', ),
         html.Div(children=[dcc.Graph(id="c-line-graph-timeseries")],
-                 style={
-                   'display': 'inline-block',
-                   "margin": 0,
-                   'width': '100%'
-                 },
-                 className="all-country-line"),
+                #  style={
+                #    'display': 'inline-block',
+                #    "margin": 0,
+                #    'width': '100%'
+                #  },
+                 className='content-box', ),
         html.Div(children=[dash_table.DataTable(id="tbl", columns=df_col)],
-                 className="trade-table")
+                 className='content-box', )
       ]),
     ])

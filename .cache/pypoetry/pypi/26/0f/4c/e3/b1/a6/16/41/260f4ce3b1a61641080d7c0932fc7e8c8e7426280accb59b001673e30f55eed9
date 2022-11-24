@@ -1,0 +1,1 @@
+9999999999{"name": "dash-bootstrap-components", "version": "1.2.1", "summary": "Bootstrap themed components for use in Plotly Dash", "platform": null, "requires_dist": ["dash (>=2.0.0)", "numpy ; extra == 'pandas'", "pandas ; extra == 'pandas'"], "requires_python": ">=3.6, <4", "files": [], "_cache_version": "1.0.0"}

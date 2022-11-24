@@ -66,9 +66,11 @@ def ses(y):
 
 def layout(prodcode=["Fuels"]):
   return html.Div(
-    className='content-box',
     children=[
-      html.H3('Energy Prices'),
+      html.Div(
+        className='content-box',
+        children=[
+                html.H3('Energy Prices'),
       html.Div(style={'display': 'inline flex'},
                children=[
                  html.Div(style={
@@ -110,30 +112,33 @@ def layout(prodcode=["Fuels"]):
         id='energyprices',
         responsive=False,
       ),
-      html.Div(children=[
-        html.H1(children="Geospatial graph of Exports and Imports"),
+      ]),
+      html.Div(
+        className='content-box',
+        children=[
+        html.H3(children="Geospatial graph of Exports and Imports"),
         html.Div(children=[
+          html.P('Choose Year:'),
           dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown'),
+          html.P('Choose Product:'),
           dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown'),
-          html.Div(children=[
+          html.Div(
+          style={"width": "25%"},
+          children=[
+            html.P('Choose Trade Type:'),
             dcc.RadioItems(['Export', 'Import'], 'Export', id='ind-network-dropdown')
-                  ]),
-                ],
-                 style={"width": "25%"})
-          ],
-               className="geospatial-options"),
-      html.Div(children=[
-        html.Div(children=[
-          dcc.Graph(id='geospatial-network')],),
+          ]),
+          ]),
+          html.Div(children=[
+            dcc.Graph(id='geospatial-network')],),
+          ]),
+      html.Div(
+        className='content-box',
+        children=[
+        html.H3("Singapore's Bilateral Trade Relations"),
         html.Div(children=[
           dcc.Graph(id='sunburst')],),
-      ],
-               style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '100%'
-                },
-               className="geospatial-graph"),
+      ]),
     ])
 
 
@@ -221,7 +226,7 @@ def energyprices(global_local_choice, predict, detection_method):
                                      fig)
 
     # fig.update_xaxes(rangeslider_visible=True, )
-    fig.update_xaxes(range=['2019-01', '2021-10'])
+    fig.update_xaxes(range=['2012-01', '2021-10'])
     fig['layout']['yaxis1'].update(title='Energy Prices (cents per kwh)')
     fig.update_layout(height=height, )
 

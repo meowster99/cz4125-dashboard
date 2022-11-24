@@ -155,6 +155,7 @@ def wageupdate(ind, global_local_choice, predict, detection_method):
           name="Average Wage"  # this sets its legend entry
         ))
 
+      j = 0
       for i in range(1, 6):
         fig.add_traces(
           go.Scatter(x=fcast_real_wage['index'],
@@ -195,26 +196,33 @@ def wageupdate(ind, global_local_choice, predict, detection_method):
           name="Female"  # this sets its legend entry
         ))
 
+
       for i in range(1, 6):
         fig.add_traces(
           go.Scatter(x=fcast_male['index'],
                      y=fcast_male.iloc[:, i],
                      mode='lines',
-                     name=fcast_male.columns[i] + '-male',
-                     line=dict(color=colors[i - 1])))
+                     legendgroup=fcast_male.columns[i],
+                     legendgrouptitle_text=str(fcast_male.columns[i]),
+                     name='Male',
+                     line=dict(color=px.colors.qualitative.Bold[i])))
 
         fig.add_traces(
           go.Scatter(x=fcast_female['index'],
                      y=fcast_female.iloc[:, i],
                      mode='lines',
-                     name=fcast_female.columns[i] + '-female',
-                     line=dict(color=colors[i - 1])))
+                     legendgroup=fcast_female.columns[i],
+                     name='Female',
+                     line=dict(color=px.colors.qualitative.Pastel[i])))
 
       fig.update_layout(height=height, legend_title='Legend', showlegend=True)
 
   else:
     height = styles.HEIGHT2
-    fig = make_subplots(rows=2, cols=1, vertical_spacing=styles.VERT_SPACING, shared_xaxes=True)
+    fig = make_subplots(rows=2,
+                        cols=1,
+                        vertical_spacing=styles.VERT_SPACING,
+                        shared_xaxes=True)
 
     sentiment_df = utils.load_news_sentiments_datasets(global_local_choice)
     try:

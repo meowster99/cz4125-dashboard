@@ -60,9 +60,11 @@ query_mapper = {
 ####### LAYOUT #######
 def layout(prodcode=['Food']):
   return html.Div(
-    className='content-box',
     children=[
-      html.H3('Consumer Price Index Tracker'),
+      html.Div(
+        className='content-box',
+        children=[
+              html.H3('Consumer Price Index Tracker'),
       html.Div(
         className='filter-options',
         children=[
@@ -127,29 +129,33 @@ def layout(prodcode=['Food']):
         id='cpival',
         responsive=False,
       ),
-      html.Div(children=[
-        html.H1(children="Geospatial graph of Exports and Imports"),
+      ]),
+      html.Div(
+        className='content-box',
+        children=[
+        html.H3(children="Geospatial graph of Exports and Imports"),
         html.Div(children=[
+          html.P('Choose Year:'),
           dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown'),
+          html.P('Choose Product:'),
           dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown'),
-          html.Div(children=[
-            dcc.RadioItems(
-              ['Export', 'Import'], 'Export', id='ind-network-dropdown')
+          html.Div(
+          style={"width": "25%"},
+          children=[
+            html.P('Choose Trade Type:'),
+            dcc.RadioItems(['Export', 'Import'], 'Export', id='ind-network-dropdown')
           ]),
-        ],
-                 style={"width": "25%"})
-      ],
-               className="geospatial-options"),
-      html.Div(children=[
-        html.Div(children=[dcc.Graph(id='geospatial-network')], ),
-        html.Div(children=[dcc.Graph(id='sunburst')], ),
-      ],
-               style={
-                 'display': 'inline-block',
-                 "margin": 0,
-                 'width': '100%'
-               },
-               className="geospatial-graph"),
+          ]),
+          html.Div(children=[
+            dcc.Graph(id='geospatial-network')],),
+          ]),
+      html.Div(
+        className='content-box',
+        children=[
+        html.H3("Singapore's Bilateral Trade Relations"),
+        html.Div(children=[
+          dcc.Graph(id='sunburst')],),
+      ]),
     ])
 
 
@@ -243,7 +249,7 @@ def cpi(global_local_choice, maincat, predict, detection_method):
                   col=1)
     if detection_method != 'Event Tagging':
       dates_yearly, dates_monthly = utils.read_price_change_data(
-        'cpi', maincat, detection_method)
+        'cpi', maincat, [], detection_method)
       fig = utils.render_significant_dates(fig,
                                            dates_monthly,
                                            detection_method,
@@ -258,7 +264,7 @@ def cpi(global_local_choice, maincat, predict, detection_method):
                                        fig)
 
     # fig.update_xaxes(rangeslider_visible=True, )
-    fig.update_xaxes(range=['2016-01', '2021-10'])
+    fig.update_xaxes(range=['2012-01', '2021-10'])
     fig['layout']['yaxis1'].update(title='CPI')
     fig.update_layout(height=height, )
 

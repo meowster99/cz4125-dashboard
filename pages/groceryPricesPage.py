@@ -41,87 +41,96 @@ filter = [
 ####### LAYOUT #######
 def layout(prodcode=["Food"]):
   return html.Div(
-    className='content-box',
     children=[
-      html.H3('Grocery Price Tracker'),
       html.Div(
-        className='filter-options',
+        className='content-box',
         children=[
-          dcc.Dropdown(
-            style={
-              "width": '400px',
-              'margin-top': '5px'
-            },
-            id="slct_maincat",
-            className='dropdown-maincat',
-            value='Bread',
-            options=maincatoptions,
-          ),
-          html.Div(children=[
-            html.Div(
+        html.H3('Grocery Price Tracker'),
+        html.Div(
+          className='filter-options',
+          children=[
+            dcc.Dropdown(
               style={
-                'margin-left': '550px',
-                'margin-top': '10px'
+                "width": '400px',
+                'margin-top': '5px'
               },
-              children=[
-                daq.ToggleSwitch(
-                  label='View Predictions?',
-                  id='toggle-prediction',
-                  size=40,
-                  # labelPosition='right',
-                  value=False),
-              ]),
-          ]),
-        ]),
-      html.Div(
-        id='news-analysis-c3',
-        children=[
-          html.Div(
-            #  style={'display': 'inline flex'},
-            children=[
-              html.P('News Type: '),
-              dcc.RadioItems(
-                ['Global', 'Local'],
-                'Global',
-                id='global_local',
-              ),
+              id="slct_maincat",
+              className='dropdown-maincat',
+              value='Bread',
+              options=maincatoptions,
+            ),
+            html.Div(children=[
+              html.Div(
+                style={
+                  'margin-left': '550px',
+                  'margin-top': '10px'
+                },
+                children=[
+                  daq.ToggleSwitch(
+                    label='View Predictions?',
+                    id='toggle-prediction',
+                    size=40,
+                    # labelPosition='right',
+                    value=False),
+                ]),
             ]),
-          html.Div(style={'padding-top': '10px'},
-                   children=[
-                     html.P('Analysis Method: '),
-                     dcc.Dropdown(
-                       id="detection_method",
-                       value=utils.techniques[0],
-                       options=utils.techniques,
-                       multi=False,
-                     ),
-                     html.Div(id='info-c3'),
-                   ]),
-        ]),
-      html.Div(children=[
-        html.H1(children="Geospatial graph of Exports and Imports"),
+          ]),
+        html.Div(
+          id='news-analysis-c3',
+          children=[
+            html.Div(
+              #  style={'display': 'inline flex'},
+              children=[
+                html.P('News Type: '),
+                dcc.RadioItems(
+                  ['Global', 'Local'],
+                  'Global',
+                  id='global_local',
+                ),
+              ]),
+            html.Div(style={'padding-top': '10px'},
+                     children=[
+                       html.P('Analysis Method: '),
+                       dcc.Dropdown(
+                         id="detection_method",
+                         value=utils.techniques[0],
+                         options=utils.techniques,
+                         multi=False,
+                       ),
+                       html.Div(id='info-c3'),
+                     ]),
+          ]),
+        dcc.Graph(
+          id='grocprices',
+          responsive=False,
+        ),
+      ]),
+      html.Div(
+        className='content-box',
+        children=[
+        html.H3(children="Geospatial graph of Exports and Imports"),
         html.Div(children=[
+          html.P('Choose Year:'),
           dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown'),
+          html.P('Choose Product:'),
           dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown'),
-          html.Div(children=[
+          html.Div(
+          style={"width": "25%"},
+          children=[
+            html.P('Choose Trade Type:'),
             dcc.RadioItems(['Export', 'Import'], 'Export', id='ind-network-dropdown')
-                  ]),
-                ],
-                 style={"width": "25%"})
-          ],
-               className="geospatial-options"),
-      html.Div(children=[
-        html.Div(children=[
-          dcc.Graph(id='geospatial-network')],),
+          ]),
+          ]),
+          html.Div(children=[
+            dcc.Graph(id='geospatial-network')],),
+          ]),
+      html.Div(
+        className='content-box',
+        children=[
+        html.H3("Singapore's Bilateral Trade Relations"),
         html.Div(children=[
           dcc.Graph(id='sunburst')],),
-      ],
-               style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '100%'
-                },
-               className="geospatial-graph"),
+      ]),
     ])
 
 
@@ -232,10 +241,10 @@ def grocgraph(maincat, global_local_choice, predict, detection_method):
 
   fig.update_layout(
     font=dict(size=10, ),
+    font_family="Lexend",
     title="Grocery Prices",
     width=styles.WIDTH,
     height=height,
     template='plotly_white',
-    font_family="Lexend",
   )
   return fig

@@ -15,7 +15,7 @@ from statsmodels.tsa.api import ExponentialSmoothing, Holt, SimpleExpSmoothing
 import styles
 from src.trade import TradeStat, UnifiedStats
 
-TRADE_DATA = './data/trade_data/trade_data.pkl'
+TRADE_DATA = 'data/trade_data/trade_data.pkl'
 
 with open(TRADE_DATA, 'rb') as inp:
   s = pickle.load(inp)
@@ -64,13 +64,18 @@ df_col = [{
 def ses(y, n):
   fit1 = SimpleExpSmoothing(y, initialization_method="estimated").fit()
   fcast1 = fit1.forecast(n).rename("SES")
+  
   fit2 = Holt(y, initialization_method="estimated").fit()
   fcast2 = fit2.forecast(n).rename("Holt's")
+  
   fit3 = Holt(y, exponential=True, initialization_method="estimated").fit()
   fcast3 = fit3.forecast(n).rename("Exponential")
-  fit4 = Holt(y, damped_trend=True,
+  
+  fit4 = Holt(y, 
+              damped_trend=True,
               initialization_method="estimated").fit(damping_trend=0.98)
   fcast4 = fit4.forecast(n).rename("Additive Damped")
+  
   fit5 = Holt(y,
               exponential=True,
               damped_trend=True,
@@ -233,9 +238,10 @@ def add_sentiment_traces(target_col, temp_sentiment_df, merged_df,
     changepoints.columns = ['Change']
     changepoints["Change"] = changepoints["Change"].astype('str')
     changepoints = list(changepoints['Change'])
+    
     for x in changepoints:
-      fig.add_vline(x=x, line_width=5, line_color="red", opacity=0.3)
-
+      fig.add_vline(x=x, line_width=5, line_color="red",line_dash="dot", opacity=0.3, row = 2)
+    
   fig['layout']['yaxis2'].update(title='Volume of Sentiment')
 
   fig['layout']['xaxis2'].update(rangeslider_visible=True,
@@ -245,22 +251,69 @@ def add_sentiment_traces(target_col, temp_sentiment_df, merged_df,
 
   return fig
 
+def get_changepoints_subplot(category, maincat):
+    if category == "energy":
+     data = pd.read_csv('data/pages_changepoints/Energy_Changepoints.csv')
+     data = data["Energy"].str[-4:]
+     data = data.astype('str')
+     changepoints_dates = list(data["Energy"])
+    elif category == "grocery":
+     data = pd.read_csv('data/pages_changepoints/Groceries_Changepoints.csv')
+    #  data = list(data[maincat])
+     data = data.dropna()
+     data = data.astype('str')
+     changepoints_dates = list(data)
+    elif category == "cpi":
+     data = pd.read_csv('data/pages_changepoints/CPI_Changepoints.csv')
+    #  data = list(data[maincat])
+     data = data.dropna()
+     data = data[maincat].str[-4:]
+     data = data.astype('str')
+     changepoints_dates = list(data)
+    else:
+     changepoints_dates = []
+    return changepoints_dates
 
-def read_price_change_data(category, subcat, detection_method):
-  # if detection_method == "Change Point Detection":
-  # 	dates_monthy = ['2020-01'] # delise add data here
-  # 	dates_yearly = ['2020-01']
-  # else:
-  dates_yearly = pd.read_json(f'data/price_change_data/{category}-yearly.json')
-  dates_yr = dates_yearly[subcat]
-  if category != 'grocery':
-    dates_monthly = pd.read_json(
-      f'data/price_change_data/{category}-monthly.json')
-    dates_mth = dates_monthly[subcat]
-    return dates_yr, dates_mth
-  return dates_yr
+def read_price_change_data(category, maincat, subcat, detection_method):
+  if detection_method == "Change Point Detection":
+     dates_yr = get_changepoints_subplot(category, maincat)
+  #   the output are all integers and only the years
+  else:
+    dates_yearly = pd.read_json(f'data/price_change_data/{category}-yearly.json')
+    dates_yr = dates_yearly[subcat]
+    if category != 'grocery':
+      dates_monthly = pd.read_json(f'data/price_change_data/{category}-monthly.json')
+      dates_mth = dates_monthly[subcat]
+      return dates_yr, dates_mth
+    return dates_yr
 
 
 def render_significant_dates(fig, dates, detection_method, color):
   for date in dates:
     fig.add_vline(x=date, line_width=5, line_color=color, opacity=0.3)
+  return fig
+
+def get_top_headlines(choice):
+  events = {}
+  if choice=='Known Significant Events':
+    df = pd.read_csv('data/top_headlines/compiled-events.csv')
+    events['hl'] = df.true_headline.to_list()
+    events['date'] = df.published_on.to_list()
+    events['url'] = df.url.to_list()
+    return events
+  else:
+    global_events = {}
+    local_events = {}
+    if choice=='By Sentiment Techniques':
+      gdf = pd.read_csv('data/top_headlines/top_headlines_global.csv').drop_duplicates(subset='true_headline')
+      ldf = pd.read_csv('data/top_headlines/top_headlines_local.csv').drop_duplicates(subset='true_headline')
+    elif choice=='By Measures of Economic Dependency':
+      gdf = pd.read_csv('data/top_headlines/top_headlines_global_without_sentiments.csv').drop_duplicates(subset='true_headline')
+      ldf = pd.read_csv('data/top_headlines/top_headlines_local_without_sentiments.csv').drop_duplicates(subset='true_headline')
+    global_events['hl'] = gdf.true_headline.to_list()
+    global_events['date'] = gdf.published_on.to_list()
+    global_events['url'] = gdf.url.to_list()
+    local_events['hl'] = ldf.true_headline.to_list()
+    local_events['date'] = ldf.published_on.to_list()
+    local_events['url'] = ldf.url.to_list()
+    return global_events, local_events

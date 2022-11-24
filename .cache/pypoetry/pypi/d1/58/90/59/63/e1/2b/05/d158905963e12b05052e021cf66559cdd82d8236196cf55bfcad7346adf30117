@@ -1,0 +1,1 @@
+9999999999{"name": "patsy", "version": "0.5.3", "summary": "A Python package for describing statistical models and for building design matrices.", "platform": null, "requires_dist": ["six", "numpy (>=1.4)", "pytest ; extra == 'test'", "pytest-cov ; extra == 'test'", "scipy ; extra == 'test'"], "requires_python": "", "files": [], "_cache_version": "1.0.0"}

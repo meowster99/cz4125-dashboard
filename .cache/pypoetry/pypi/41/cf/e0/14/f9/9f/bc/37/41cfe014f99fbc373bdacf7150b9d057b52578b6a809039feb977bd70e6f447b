@@ -1,0 +1,1 @@
+9999999999{"name": "dash-daq", "version": "0.5.0", "summary": "DAQ components for Dash", "platform": "", "requires_dist": ["dash>=1.6.1"], "requires_python": null, "files": [], "_cache_version": "1.0.0"}

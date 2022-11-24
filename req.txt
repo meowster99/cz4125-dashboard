@@ -1,4 +1,4 @@
-aiohttp @ https://files.pythonhosted.org/packages/af/d6/248ad502c6049011e7851e1474dd0a58175895388bed15f7f67dcb9187d9/aiohttp-3.8.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=87f44875f2804bc0511a69ce44a9595d5944837a62caecc8490bbdb0e18b1342
+aiohttp
 aiosignal @ https://files.pythonhosted.org/packages/3b/87/fe94898f2d44a93a35d5aa74671ed28094d80753a1113d68b799fab6dc22/aiosignal-1.2.0-py3-none-any.whl#sha256=26e62109036cd181df6e6ad646f91f0dcfd05fe16d0cb924138ff2ab75d64e3a
 async-timeout @ https://files.pythonhosted.org/packages/d6/c1/8991e7c5385b897b8c020cdaad718c5b087a6626d1d11a23e1ea87e325a7/async_timeout-4.0.2-py3-none-any.whl#sha256=8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c
 attrs @ https://files.pythonhosted.org/packages/f2/bc/d817287d1aa01878af07c19505fafd1165cd6a119e9d0821ca1d1c20312d/attrs-22.1.0-py2.py3-none-any.whl#sha256=86efa402f67bf2df34f51a335487cf46b1ec130d02b8d39fd248abfd30da551c
@@ -78,6 +78,6 @@ virtualenv==20.16.2
 webencodings==0.5.1
 Werkzeug @ https://files.pythonhosted.org/packages/c8/27/be6ddbcf60115305205de79c29004a0c6bc53cec814f733467b1bb89386d/Werkzeug-2.2.2-py3-none-any.whl#sha256=f979ab81f58d7318e064e99c4506445d60135ac5cd2e177a2de0089bfd4c9bd5
 whatthepatch @ https://files.pythonhosted.org/packages/fe/31/bf06fa31436e8118447bed0a428a1279d1164ebdc2d8866666033ab03ca8/whatthepatch-1.0.2-py2.py3-none-any.whl#sha256=6d920d6c328eda006f12ec05bc9eadb405957b18460520db195f9a21eb3336e1
-yapf @ https://files.pythonhosted.org/packages/47/88/843c2e68f18a5879b4fbf37cb99fbabe1ffc4343b2e63191c8462235c008/yapf-0.32.0-py2.py3-none-any.whl#sha256=8fea849025584e486fd06d6ba2bed717f396080fd3cc236ba10cb97c4c51cf32
-yarl @ https://files.pythonhosted.org/packages/dd/cf/5e7d506b9b5add77548252d6938380e08caf59ba808ac3cf0f0635629d1a/yarl-1.8.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=ea513a25976d21733bff523e0ca836ef1679630ef4ad22d46987d04b372d57fc
+yapf 
+yarl 
 zipp==3.8.1

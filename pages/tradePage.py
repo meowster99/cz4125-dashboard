@@ -50,10 +50,10 @@ def graph_update(year_value, pc_value, ind_value):
                   lat=latitude,
                   hoverinfo='text',
                   text=[str(x) for x in e.get_country_names()],
-                  mode='markers',
+                  mode='text',
                   hovertemplate="%{text} <extra></extra>",
                   marker=dict(size=5,
-                              color=styles.colors['pink'],
+                              color=styles.colors['black'],
                               line=dict(width=3,
                                         color='rgba(68, 68, 68, 0)'))))
 
@@ -65,9 +65,9 @@ def graph_update(year_value, pc_value, ind_value):
                   hoverinfo='text',
                   text=["Singapore"],
                   hovertemplate="%{text} <extra></extra>",
-                  mode='markers',
-                  marker=dict(size=8,
-                              color=styles.colors['red'],
+                  mode='markers+text',
+                  marker=dict(size=10,
+                              color=styles.colors['purple'],
                               line=dict(width=3,
                                         color='rgba(68, 68, 68, 0)'))))
 
@@ -83,19 +83,32 @@ def graph_update(year_value, pc_value, ind_value):
             text=float(data),
             # hoverinfo='text',
             # hovertemplate="%{text} <extra></extra>",
+            hovertemplate=f"USD {round(float(data)):,} <extra></extra>",
             lon=[103.851959, all_ind[i].country_info.long],
             lat=[1.290270, all_ind[i].country_info.lat],
             mode='lines',
-            line=dict(width=5, color=styles.colors['blue']),
+            line=dict(width=5, color=styles.colors['pink']),
             opacity=(float(data) / max_),
           ))
   fig_network.update_layout(
+    font=dict(size=10, ),
+    font_family="Lexend",
     title_text=f'{pc_value}'
     f'({ind_value}) for {year_value}',
     showlegend=False,
-    height=600,
+    margin={"r":0,"t":0,"l":0,"b":0},
+    height=styles.HEIGHT1,
+    width=styles.WIDTH
   )
-  fig_network.update_geos(projection_type="orthographic")
+  fig_network.update_geos(
+    # projection_type="orthographic",
+    center=dict(lon=103.851959, lat=1.290270),
+    projection_type="natural earth",
+    projection_scale=3,
+    showland=True,
+    landcolor="#C1E1C1",
+    showocean=True, oceancolor=styles.colors['lightblue'],
+  )
 
   return fig_network
 
@@ -149,10 +162,14 @@ def trade_prop(year_value, pc_value):
                 marker=dict(colors=colours),
                 branchvalues="total"))
   fig.update_layout(
+    font=dict(size=10, ),
+    font_family="Lexend",
     title_text=f'{pc_value} '
     f'for {year_value}',
     showlegend=False,
-    height=600,
+    # margin={"r":0,"t":0,"l":0,"b":0},
+    height=styles.HEIGHT1,
+    width=styles.WIDTH
   )
   return fig
 
@@ -194,7 +211,9 @@ def pie_update(year_value):
            name=f"Exports in {year_value}",
            textinfo='label+percent',
            textposition='inside'), 1, 2)
-  fig_piechart.update_layout(title_text=f'Trade for {year_value}',
+  fig_piechart.update_layout(font=dict(size=10, ),
+                             font_family="Lexend",
+                             title_text=f'Trade for {year_value}',
                              uniformtext_minsize=12,
                              uniformtext_mode='hide')
   return fig_piechart
@@ -308,6 +327,8 @@ def update_line_chart(pc):
   fig_line = make_subplots(
     rows=1, cols=2, subplot_titles=['Imported products', 'Exported products'])
   fig_line.update_layout(
+    font=dict(size=10, ),
+    font_family="Lexend",
     title_text="Total traded over time",
     legend_tracegroupgap=500,
   )
@@ -337,6 +358,8 @@ def update_line_chart(top_n):
   fig_cline = make_subplots(
     rows=1, cols=2, subplot_titles=['Import partners', 'Export partners'])
   fig_cline.update_layout(
+    font=dict(size=10, ),
+    font_family="Lexend",
     title_text="Total traded over time",
     legend_tracegroupgap=500,
   )

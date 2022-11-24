@@ -20,23 +20,36 @@
     margin-bottom: 30px;
 }
 
+.content-box-list {
+    /* width: 1200px; */
+    /* box-shadow: .5px .5px 5px #f1f2f8; */
+    background-color: f1f2f8;
+    /* border-radius: 10px; */
+    margin-bottom: 0px;
+    padding: 10px;
+    margin:10px;
+    border-bottom: 1px solid #c5c5c5;
+}
+
 .scroller {
+    z-index: 100;
     position: fixed;
-    top: 120px;
+    top: 50px;
     right: 20px;
-    min-height: 400px;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    max-height: 850px;
+    /* overflow-y: scroll; */
+    /* scroll-snap-type: y mandatory; */
 }
 .content-box-sidebar {
-    width: 500px;
+    width: 600px;
     height: fit-content;
     box-shadow: .5px .5px 5px #f1f2f8;
     background-color: white;
     border-radius: 10px;
     margin-bottom: 0px;
     padding: 10px;
-    margin:10px;
+    margin: 10px;
+    overflow-y: scroll;
 }
 
 /* .scroller H2 {
@@ -44,6 +57,27 @@
 } */
 
 html {background-color: #f1f2f8}
+
+a {
+    color: #242424;
+    /* min-width: 200px; */
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* text-align: center; */
+    text-decoration: none;
+    font-weight: bold;
+    /* font-size: 12px; */
+    /* margin: 10px; */
+}
+
+a:hover {
+    color: #d2555a;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s; 
+ }
 
 label {
   font-size: 12px;
@@ -64,6 +98,7 @@ label {
     top:120px;
     min-height: 100vh;
     padding:20px;
+    max-width: 1300px;
 }
 
 .container {
@@ -84,7 +119,7 @@ label {
 
 .content-box {
 /*   probably shouldn't hard code the height and width but for now it will do */
-    width: 1080px;
+    width: 1180px;
     height: fit-content;
     box-shadow: .5px .5px 5px #f1f2f8;
     background-color: white;
@@ -104,7 +139,7 @@ label {
 }
 
 .dashboard-header {
-    z-index: 100;
+    z-index: 90;
     position: fixed;
     top: 0px;
     left: 20px;
