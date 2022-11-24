@@ -1,0 +1,6 @@
+dash
+plotly
+pandas
+numpy
+json
+dash-bootstrap-components-1.2.1

@@ -1,0 +1,229 @@
+@font-face {
+    font-family: 'Lexend';
+    src: url("fonts/Lexend-Regular.ttf") format("truetype");
+}
+
+*, body, html{
+    font-family: 'Lexend', 'Roboto', sans-serif;
+}
+
+@viewport {
+    width: device-width;
+    zoom: 1.1;
+    min-zoom: 0.6;
+    max-zoom: 1.5;
+    user-zoom: fixed;
+}
+
+.body-container {
+    min-height: 2vh;
+    margin-bottom: 30px;
+}
+
+.scroller {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    min-height: 400px;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+.content-box-sidebar {
+    width: 500px;
+    height: fit-content;
+    box-shadow: .5px .5px 5px #f1f2f8;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    padding: 10px;
+    margin:10px;
+}
+
+/* .scroller H2 {
+    scroll-snap-align: start;
+} */
+
+html {background-color: #f1f2f8}
+
+label {
+  font-size: 12px;
+}
+
+.complete-background {
+  background-color: #f1f2f8;
+  min-height: 2vh;
+  font-size: 12px;
+}
+.main-content-wrapper {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    position: relative;
+    top:120px;
+    min-height: 100vh;
+    padding:20px;
+}
+
+.container {
+    /* justify-content: center; */
+    display: flex;
+}
+
+.filter-options {
+  justify-content: center;
+  align-content: center;
+  display: inline-flex;
+  font-size: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px ridge;
+  border-bottom-color: #c4c4c4;
+  border-right: 0px;
+}
+
+.content-box {
+/*   probably shouldn't hard code the height and width but for now it will do */
+    width: 1080px;
+    height: fit-content;
+    box-shadow: .5px .5px 5px #f1f2f8;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    padding: 10px;
+    margin:10px;
+}
+
+.subtext{
+    justify-content: center;
+    width: fit-content + 10px;
+    background-color: #f1f2f8;
+    margin-bottom: 0px;
+    padding: 20px;
+    margin: 5px;
+}
+
+.dashboard-header {
+    z-index: 100;
+    position: fixed;
+    top: 0px;
+    left: 20px;
+    height:120px;
+    margin: 20px;
+    margin-top: 0px;
+    background: #f1f2f8;
+    width: 100%;
+/*     display: inline-flex; */
+}
+
+.nav-bar {
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    height:50px;
+    padding: 0;
+    background: #f1f2f8;
+    width: 100%;
+    display: inline-flex;
+}
+.wrapper .sidebar{
+    background: white;
+    position: fixed;
+    top: 150px;
+    right: 0px;
+    width: 350px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+
+.body-content-wrapper {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    position: relative;
+    min-height: 100vh;
+}
+
+.sidebar-container {
+    font-size: 13px;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    display: flex;
+    padding: 30px 30px 10px 30px !important;
+    position: sticky;
+    top: 0px;
+/*     overflow-y: scroll; */
+    height: 100vh;
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 0px;
+}
+
+.content-wrapper {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    position: relative;
+    min-height: 100vh;
+}
+
+.default-button {
+    width: fit-content + 3px;
+    background: #3947d0;
+    max-width: 16em;
+    max-height: 35px;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 10px;
+    margin: 25px 5px;
+    text-align:center;
+    float: right;
+}
+
+.default-button:hover {
+    color: #242424;
+    box-shadow: 0 0 0 1px white, 0 0 0 2px #242424;
+}
+
+.navbar-link {
+    color: white;
+    min-width: 200px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.navbar-link:hover {
+    color: #242424;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -ms-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s; 
+ }
+
+ .navbar-link:active
+ {
+     color: #d2555a !important;
+ }

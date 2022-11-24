@@ -1,0 +1,685 @@
+,year,maincat,subcat,value
+0,2010,Bread,Ordinary White Bread (Per 400 Gram),1.4
+1,2010,Bread,Vitamin Enriched Bread (Per 400 Gram),1.63
+2,2010,Bread,Wholemeal Bread (Per 400 Gram),
+3,2010,Fish & Seafood,Cod Fish (Per Kilogram),39.79
+4,2010,Fish & Seafood,Flowery Grouper (Per Kilogram),13.09
+5,2010,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),5.71
+6,2010,Fish & Seafood,Golden Snapper (Per Kilogram),15.43
+7,2010,Fish & Seafood,Medium Prawns (Per Kilogram),15.98
+8,2010,Fish & Seafood,Salmon (Per Kilogram),25.1
+9,2010,Fish & Seafood,Sea Bass (Per Kilogram),10.67
+10,2010,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),7.22
+11,2010,Fish & Seafood,Small Prawns (Per Kilogram),10.02
+12,2010,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),10.15
+13,2010,Fish & Seafood,Squids (Per Kilogram),9.81
+14,2010,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),42.77
+15,2010,Fish & Seafood,White Pomfret (Per Kilogram),21.85
+16,2010,Fruits,Apple (Each),0.37
+17,2010,Fruits,Bananas (Per Kilogram),1.51
+18,2010,Fruits,Grapes (Per Kilogram),7.68
+19,2010,Fruits,Orange (Each),0.34
+20,2010,Fruits,Papaya (Per Kilogram),1.55
+21,2010,Fruits,Pear (Each),0.88
+22,2010,Fruits,Watermelon (Per Kilogram),1.16
+23,2010,Hawker Food,Chicken Nasi Briyani (Per Plate),
+24,2010,Hawker Food,Chicken Rice (Per Plate),
+25,2010,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),
+26,2010,Hawker Food,Fishball Noodle (Per Bowl),
+27,2010,Hawker Food,Fried Carrot Cake (Per Plate),
+28,2010,Hawker Food,Ice Kachang (Per Bowl),
+29,2010,Hawker Food,Mee Rebus (Per Bowl),
+30,2010,Hawker Food,Roti Prata (Plain) (Per Piece),
+31,2010,Meat,"Beef, Chilled (Per Kilogram)",
+32,2010,Meat,"Chicken Wing, Chilled (Per Kilogram)",
+33,2010,Meat,"Duck, Chilled (Per Kilogram)",6.59
+34,2010,Meat,"Lean Pork, Chilled (Per Kilogram)",12.66
+35,2010,Meat,"Lean Pork, Frozen (Per 500 Gram)",
+36,2010,Meat,"Mutton, Chilled (Per Kilogram)",15.12
+37,2010,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",15.84
+38,2010,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",
+39,2010,Meat,"Streaky Pork, Chilled (Per Kilogram)",13.62
+40,2010,Meat,"Whole Chicken, Chilled (Per Kilogram)",5.54
+41,2010,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),4.76
+42,2010,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.76
+43,2010,"Milk, Cheese & Eggs",Hen Eggs (Per 10),1.85
+44,2010,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),3.94
+45,2010,Petrol,"Petrol, 92 Octane (Per Litre)",1.69
+46,2010,Petrol,"Petrol, 95 Octane (Per Litre)",1.75
+47,2010,Petrol,"Petrol, 98 Octane (Per Litre)",1.84
+48,2010,Rice,Premium Thai Rice (Per 5 Kilogram),12.43
+49,2010,Vegetables,Broccoli (Per Kilogram),6.83
+50,2010,Vegetables,Cabbage (Per Kilogram),1.73
+51,2010,Vegetables,Carrots (Per Kilogram),1.9
+52,2010,Vegetables,Chinese Kale (Kailan) (Per Kilogram),4.02
+53,2010,Vegetables,Potatoes (Per Kilogram),1.59
+54,2010,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),2.81
+55,2010,Vegetables,Spinach (Bayam) (Per Kilogram),2.64
+56,2010,Vegetables,Tomatoes (Per Kilogram),2.03
+57,2011,Bread,Ordinary White Bread (Per 400 Gram),1.45
+58,2011,Bread,Vitamin Enriched Bread (Per 400 Gram),1.6
+59,2011,Bread,Wholemeal Bread (Per 400 Gram),
+60,2011,Fish & Seafood,Cod Fish (Per Kilogram),46.3
+61,2011,Fish & Seafood,Flowery Grouper (Per Kilogram),14.28
+62,2011,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),6.11
+63,2011,Fish & Seafood,Golden Snapper (Per Kilogram),16.74
+64,2011,Fish & Seafood,Medium Prawns (Per Kilogram),16.91
+65,2011,Fish & Seafood,Salmon (Per Kilogram),26.17
+66,2011,Fish & Seafood,Sea Bass (Per Kilogram),12.15
+67,2011,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),7.56
+68,2011,Fish & Seafood,Small Prawns (Per Kilogram),10.47
+69,2011,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),10.44
+70,2011,Fish & Seafood,Squids (Per Kilogram),11.15
+71,2011,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),44.36
+72,2011,Fish & Seafood,White Pomfret (Per Kilogram),24.28
+73,2011,Fruits,Apple (Each),0.38
+74,2011,Fruits,Bananas (Per Kilogram),1.56
+75,2011,Fruits,Grapes (Per Kilogram),7.66
+76,2011,Fruits,Orange (Each),0.34
+77,2011,Fruits,Papaya (Per Kilogram),1.68
+78,2011,Fruits,Pear (Each),0.92
+79,2011,Fruits,Watermelon (Per Kilogram),1.31
+80,2011,Hawker Food,Chicken Nasi Briyani (Per Plate),
+81,2011,Hawker Food,Chicken Rice (Per Plate),
+82,2011,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),
+83,2011,Hawker Food,Fishball Noodle (Per Bowl),
+84,2011,Hawker Food,Fried Carrot Cake (Per Plate),
+85,2011,Hawker Food,Ice Kachang (Per Bowl),
+86,2011,Hawker Food,Mee Rebus (Per Bowl),
+87,2011,Hawker Food,Roti Prata (Plain) (Per Piece),
+88,2011,Meat,"Beef, Chilled (Per Kilogram)",
+89,2011,Meat,"Chicken Wing, Chilled (Per Kilogram)",
+90,2011,Meat,"Duck, Chilled (Per Kilogram)",6.78
+91,2011,Meat,"Lean Pork, Chilled (Per Kilogram)",12.75
+92,2011,Meat,"Lean Pork, Frozen (Per 500 Gram)",
+93,2011,Meat,"Mutton, Chilled (Per Kilogram)",17.6
+94,2011,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",16.13
+95,2011,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",
+96,2011,Meat,"Streaky Pork, Chilled (Per Kilogram)",13.91
+97,2011,Meat,"Whole Chicken, Chilled (Per Kilogram)",5.82
+98,2011,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),5.06
+99,2011,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.85
+100,2011,"Milk, Cheese & Eggs",Hen Eggs (Per 10),1.98
+101,2011,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),4.31
+102,2011,Petrol,"Petrol, 92 Octane (Per Litre)",1.9
+103,2011,Petrol,"Petrol, 95 Octane (Per Litre)",1.96
+104,2011,Petrol,"Petrol, 98 Octane (Per Litre)",2.04
+105,2011,Rice,Premium Thai Rice (Per 5 Kilogram),12.45
+106,2011,Vegetables,Broccoli (Per Kilogram),6.8
+107,2011,Vegetables,Cabbage (Per Kilogram),1.81
+108,2011,Vegetables,Carrots (Per Kilogram),1.95
+109,2011,Vegetables,Chinese Kale (Kailan) (Per Kilogram),4.11
+110,2011,Vegetables,Potatoes (Per Kilogram),1.79
+111,2011,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.16
+112,2011,Vegetables,Spinach (Bayam) (Per Kilogram),2.83
+113,2011,Vegetables,Tomatoes (Per Kilogram),1.96
+114,2012,Bread,Ordinary White Bread (Per 400 Gram),1.46
+115,2012,Bread,Vitamin Enriched Bread (Per 400 Gram),1.6
+116,2012,Bread,Wholemeal Bread (Per 400 Gram),
+117,2012,Fish & Seafood,Cod Fish (Per Kilogram),48.85
+118,2012,Fish & Seafood,Flowery Grouper (Per Kilogram),14.62
+119,2012,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),6.57
+120,2012,Fish & Seafood,Golden Snapper (Per Kilogram),16.77
+121,2012,Fish & Seafood,Medium Prawns (Per Kilogram),17.23
+122,2012,Fish & Seafood,Salmon (Per Kilogram),25.41
+123,2012,Fish & Seafood,Sea Bass (Per Kilogram),12.46
+124,2012,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),8.27
+125,2012,Fish & Seafood,Small Prawns (Per Kilogram),11.17
+126,2012,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),10.97
+127,2012,Fish & Seafood,Squids (Per Kilogram),11.32
+128,2012,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),44.8
+129,2012,Fish & Seafood,White Pomfret (Per Kilogram),24.76
+130,2012,Fruits,Apple (Each),0.4
+131,2012,Fruits,Bananas (Per Kilogram),1.65
+132,2012,Fruits,Grapes (Per Kilogram),7.88
+133,2012,Fruits,Orange (Each),0.34
+134,2012,Fruits,Papaya (Per Kilogram),1.79
+135,2012,Fruits,Pear (Each),0.93
+136,2012,Fruits,Watermelon (Per Kilogram),1.34
+137,2012,Hawker Food,Chicken Nasi Briyani (Per Plate),
+138,2012,Hawker Food,Chicken Rice (Per Plate),
+139,2012,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),
+140,2012,Hawker Food,Fishball Noodle (Per Bowl),
+141,2012,Hawker Food,Fried Carrot Cake (Per Plate),
+142,2012,Hawker Food,Ice Kachang (Per Bowl),
+143,2012,Hawker Food,Mee Rebus (Per Bowl),
+144,2012,Hawker Food,Roti Prata (Plain) (Per Piece),
+145,2012,Meat,"Beef, Chilled (Per Kilogram)",
+146,2012,Meat,"Chicken Wing, Chilled (Per Kilogram)",
+147,2012,Meat,"Duck, Chilled (Per Kilogram)",6.75
+148,2012,Meat,"Lean Pork, Chilled (Per Kilogram)",13.07
+149,2012,Meat,"Lean Pork, Frozen (Per 500 Gram)",
+150,2012,Meat,"Mutton, Chilled (Per Kilogram)",17.79
+151,2012,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",16.48
+152,2012,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",
+153,2012,Meat,"Streaky Pork, Chilled (Per Kilogram)",14.4
+154,2012,Meat,"Whole Chicken, Chilled (Per Kilogram)",5.87
+155,2012,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),5.07
+156,2012,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.88
+157,2012,"Milk, Cheese & Eggs",Hen Eggs (Per 10),1.88
+158,2012,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),4.48
+159,2012,Petrol,"Petrol, 92 Octane (Per Litre)",1.95
+160,2012,Petrol,"Petrol, 95 Octane (Per Litre)",2.0
+161,2012,Petrol,"Petrol, 98 Octane (Per Litre)",2.13
+162,2012,Rice,Premium Thai Rice (Per 5 Kilogram),12.67
+163,2012,Vegetables,Broccoli (Per Kilogram),7.54
+164,2012,Vegetables,Cabbage (Per Kilogram),1.91
+165,2012,Vegetables,Carrots (Per Kilogram),1.96
+166,2012,Vegetables,Chinese Kale (Kailan) (Per Kilogram),4.13
+167,2012,Vegetables,Potatoes (Per Kilogram),1.71
+168,2012,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),2.97
+169,2012,Vegetables,Spinach (Bayam) (Per Kilogram),2.79
+170,2012,Vegetables,Tomatoes (Per Kilogram),2.0
+171,2013,Bread,Ordinary White Bread (Per 400 Gram),1.49
+172,2013,Bread,Vitamin Enriched Bread (Per 400 Gram),1.68
+173,2013,Bread,Wholemeal Bread (Per 400 Gram),
+174,2013,Fish & Seafood,Cod Fish (Per Kilogram),49.58
+175,2013,Fish & Seafood,Flowery Grouper (Per Kilogram),14.63
+176,2013,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),6.57
+177,2013,Fish & Seafood,Golden Snapper (Per Kilogram),17.71
+178,2013,Fish & Seafood,Medium Prawns (Per Kilogram),17.88
+179,2013,Fish & Seafood,Salmon (Per Kilogram),26.23
+180,2013,Fish & Seafood,Sea Bass (Per Kilogram),12.29
+181,2013,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),8.43
+182,2013,Fish & Seafood,Small Prawns (Per Kilogram),11.69
+183,2013,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),11.07
+184,2013,Fish & Seafood,Squids (Per Kilogram),11.97
+185,2013,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),48.53
+186,2013,Fish & Seafood,White Pomfret (Per Kilogram),24.7
+187,2013,Fruits,Apple (Each),0.42
+188,2013,Fruits,Bananas (Per Kilogram),1.81
+189,2013,Fruits,Grapes (Per Kilogram),8.43
+190,2013,Fruits,Orange (Each),0.36
+191,2013,Fruits,Papaya (Per Kilogram),1.92
+192,2013,Fruits,Pear (Each),0.95
+193,2013,Fruits,Watermelon (Per Kilogram),1.46
+194,2013,Hawker Food,Chicken Nasi Briyani (Per Plate),
+195,2013,Hawker Food,Chicken Rice (Per Plate),
+196,2013,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),
+197,2013,Hawker Food,Fishball Noodle (Per Bowl),
+198,2013,Hawker Food,Fried Carrot Cake (Per Plate),
+199,2013,Hawker Food,Ice Kachang (Per Bowl),
+200,2013,Hawker Food,Mee Rebus (Per Bowl),
+201,2013,Hawker Food,Roti Prata (Plain) (Per Piece),
+202,2013,Meat,"Beef, Chilled (Per Kilogram)",
+203,2013,Meat,"Chicken Wing, Chilled (Per Kilogram)",
+204,2013,Meat,"Duck, Chilled (Per Kilogram)",6.87
+205,2013,Meat,"Lean Pork, Chilled (Per Kilogram)",13.14
+206,2013,Meat,"Lean Pork, Frozen (Per 500 Gram)",
+207,2013,Meat,"Mutton, Chilled (Per Kilogram)",17.89
+208,2013,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",16.4
+209,2013,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",
+210,2013,Meat,"Streaky Pork, Chilled (Per Kilogram)",14.67
+211,2013,Meat,"Whole Chicken, Chilled (Per Kilogram)",5.96
+212,2013,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),4.85
+213,2013,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.93
+214,2013,"Milk, Cheese & Eggs",Hen Eggs (Per 10),1.94
+215,2013,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),4.92
+216,2013,Petrol,"Petrol, 92 Octane (Per Litre)",1.99
+217,2013,Petrol,"Petrol, 95 Octane (Per Litre)",2.05
+218,2013,Petrol,"Petrol, 98 Octane (Per Litre)",2.2
+219,2013,Rice,Premium Thai Rice (Per 5 Kilogram),12.78
+220,2013,Vegetables,Broccoli (Per Kilogram),7.38
+221,2013,Vegetables,Cabbage (Per Kilogram),1.94
+222,2013,Vegetables,Carrots (Per Kilogram),1.98
+223,2013,Vegetables,Chinese Kale (Kailan) (Per Kilogram),4.31
+224,2013,Vegetables,Potatoes (Per Kilogram),1.78
+225,2013,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.04
+226,2013,Vegetables,Spinach (Bayam) (Per Kilogram),2.81
+227,2013,Vegetables,Tomatoes (Per Kilogram),2.2
+228,2014,Bread,Ordinary White Bread (Per 400 Gram),1.57
+229,2014,Bread,Vitamin Enriched Bread (Per 400 Gram),1.88
+230,2014,Bread,Wholemeal Bread (Per 400 Gram),2.04
+231,2014,Fish & Seafood,Cod Fish (Per Kilogram),48.6
+232,2014,Fish & Seafood,Flowery Grouper (Per Kilogram),13.79
+233,2014,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),6.77
+234,2014,Fish & Seafood,Golden Snapper (Per Kilogram),18.04
+235,2014,Fish & Seafood,Medium Prawns (Per Kilogram),18.69
+236,2014,Fish & Seafood,Salmon (Per Kilogram),27.42
+237,2014,Fish & Seafood,Sea Bass (Per Kilogram),12.35
+238,2014,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),8.61
+239,2014,Fish & Seafood,Small Prawns (Per Kilogram),12.92
+240,2014,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),11.36
+241,2014,Fish & Seafood,Squids (Per Kilogram),12.72
+242,2014,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),51.18
+243,2014,Fish & Seafood,White Pomfret (Per Kilogram),25.02
+244,2014,Fruits,Apple (Each),0.45
+245,2014,Fruits,Bananas (Per Kilogram),2.12
+246,2014,Fruits,Grapes (Per Kilogram),8.92
+247,2014,Fruits,Orange (Each),0.35
+248,2014,Fruits,Papaya (Per Kilogram),2.15
+249,2014,Fruits,Pear (Each),0.97
+250,2014,Fruits,Watermelon (Per Kilogram),1.65
+251,2014,Hawker Food,Chicken Nasi Briyani (Per Plate),5.1
+252,2014,Hawker Food,Chicken Rice (Per Plate),3.15
+253,2014,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.09
+254,2014,Hawker Food,Fishball Noodle (Per Bowl),3.15
+255,2014,Hawker Food,Fried Carrot Cake (Per Plate),2.79
+256,2014,Hawker Food,Ice Kachang (Per Bowl),1.89
+257,2014,Hawker Food,Mee Rebus (Per Bowl),2.99
+258,2014,Hawker Food,Roti Prata (Plain) (Per Piece),0.96
+259,2014,Meat,"Beef, Chilled (Per Kilogram)",22.65
+260,2014,Meat,"Chicken Wing, Chilled (Per Kilogram)",7.87
+261,2014,Meat,"Duck, Chilled (Per Kilogram)",6.83
+262,2014,Meat,"Lean Pork, Chilled (Per Kilogram)",13.21
+263,2014,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.37
+264,2014,Meat,"Mutton, Chilled (Per Kilogram)",17.79
+265,2014,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",16.44
+266,2014,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",5.12
+267,2014,Meat,"Streaky Pork, Chilled (Per Kilogram)",14.88
+268,2014,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.14
+269,2014,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),4.74
+270,2014,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.87
+271,2014,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.14
+272,2014,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),5.67
+273,2014,Petrol,"Petrol, 92 Octane (Per Litre)",2.0
+274,2014,Petrol,"Petrol, 95 Octane (Per Litre)",2.05
+275,2014,Petrol,"Petrol, 98 Octane (Per Litre)",2.22
+276,2014,Rice,Premium Thai Rice (Per 5 Kilogram),13.07
+277,2014,Vegetables,Broccoli (Per Kilogram),6.06
+278,2014,Vegetables,Cabbage (Per Kilogram),2.01
+279,2014,Vegetables,Carrots (Per Kilogram),2.04
+280,2014,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.14
+281,2014,Vegetables,Potatoes (Per Kilogram),1.95
+282,2014,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.2
+283,2014,Vegetables,Spinach (Bayam) (Per Kilogram),2.79
+284,2014,Vegetables,Tomatoes (Per Kilogram),2.33
+285,2015,Bread,Ordinary White Bread (Per 400 Gram),1.6
+286,2015,Bread,Vitamin Enriched Bread (Per 400 Gram),1.88
+287,2015,Bread,Wholemeal Bread (Per 400 Gram),2.04
+288,2015,Fish & Seafood,Cod Fish (Per Kilogram),51.61
+289,2015,Fish & Seafood,Flowery Grouper (Per Kilogram),13.88
+290,2015,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),6.96
+291,2015,Fish & Seafood,Golden Snapper (Per Kilogram),18.78
+292,2015,Fish & Seafood,Medium Prawns (Per Kilogram),18.65
+293,2015,Fish & Seafood,Salmon (Per Kilogram),27.26
+294,2015,Fish & Seafood,Sea Bass (Per Kilogram),11.97
+295,2015,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),8.6
+296,2015,Fish & Seafood,Small Prawns (Per Kilogram),13.19
+297,2015,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),11.61
+298,2015,Fish & Seafood,Squids (Per Kilogram),13.3
+299,2015,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),52.93
+300,2015,Fish & Seafood,White Pomfret (Per Kilogram),26.29
+301,2015,Fruits,Apple (Each),0.45
+302,2015,Fruits,Bananas (Per Kilogram),2.18
+303,2015,Fruits,Grapes (Per Kilogram),9.25
+304,2015,Fruits,Orange (Each),0.39
+305,2015,Fruits,Papaya (Per Kilogram),1.96
+306,2015,Fruits,Pear (Each),0.94
+307,2015,Fruits,Watermelon (Per Kilogram),1.61
+308,2015,Hawker Food,Chicken Nasi Briyani (Per Plate),5.18
+309,2015,Hawker Food,Chicken Rice (Per Plate),3.21
+310,2015,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.15
+311,2015,Hawker Food,Fishball Noodle (Per Bowl),3.21
+312,2015,Hawker Food,Fried Carrot Cake (Per Plate),2.85
+313,2015,Hawker Food,Ice Kachang (Per Bowl),1.9
+314,2015,Hawker Food,Mee Rebus (Per Bowl),3.01
+315,2015,Hawker Food,Roti Prata (Plain) (Per Piece),1.0
+316,2015,Meat,"Beef, Chilled (Per Kilogram)",23.27
+317,2015,Meat,"Chicken Wing, Chilled (Per Kilogram)",7.89
+318,2015,Meat,"Duck, Chilled (Per Kilogram)",6.95
+319,2015,Meat,"Lean Pork, Chilled (Per Kilogram)",13.32
+320,2015,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.32
+321,2015,Meat,"Mutton, Chilled (Per Kilogram)",18.15
+322,2015,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",16.72
+323,2015,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",4.97
+324,2015,Meat,"Streaky Pork, Chilled (Per Kilogram)",15.04
+325,2015,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.11
+326,2015,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),4.77
+327,2015,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.84
+328,2015,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.22
+329,2015,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),5.97
+330,2015,Petrol,"Petrol, 92 Octane (Per Litre)",1.87
+331,2015,Petrol,"Petrol, 95 Octane (Per Litre)",1.92
+332,2015,Petrol,"Petrol, 98 Octane (Per Litre)",2.19
+333,2015,Rice,Premium Thai Rice (Per 5 Kilogram),13.07
+334,2015,Vegetables,Broccoli (Per Kilogram),5.9
+335,2015,Vegetables,Cabbage (Per Kilogram),2.09
+336,2015,Vegetables,Carrots (Per Kilogram),2.07
+337,2015,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.17
+338,2015,Vegetables,Potatoes (Per Kilogram),1.98
+339,2015,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.18
+340,2015,Vegetables,Spinach (Bayam) (Per Kilogram),2.78
+341,2015,Vegetables,Tomatoes (Per Kilogram),2.37
+342,2016,Bread,Ordinary White Bread (Per 400 Gram),1.62
+343,2016,Bread,Vitamin Enriched Bread (Per 400 Gram),1.88
+344,2016,Bread,Wholemeal Bread (Per 400 Gram),2.04
+345,2016,Fish & Seafood,Cod Fish (Per Kilogram),59.51
+346,2016,Fish & Seafood,Flowery Grouper (Per Kilogram),14.44
+347,2016,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),6.98
+348,2016,Fish & Seafood,Golden Snapper (Per Kilogram),18.66
+349,2016,Fish & Seafood,Medium Prawns (Per Kilogram),18.8
+350,2016,Fish & Seafood,Salmon (Per Kilogram),28.87
+351,2016,Fish & Seafood,Sea Bass (Per Kilogram),12.45
+352,2016,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),8.81
+353,2016,Fish & Seafood,Small Prawns (Per Kilogram),13.39
+354,2016,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),11.57
+355,2016,Fish & Seafood,Squids (Per Kilogram),14.51
+356,2016,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),56.95
+357,2016,Fish & Seafood,White Pomfret (Per Kilogram),27.66
+358,2016,Fruits,Apple (Each),0.43
+359,2016,Fruits,Bananas (Per Kilogram),2.31
+360,2016,Fruits,Grapes (Per Kilogram),9.26
+361,2016,Fruits,Orange (Each),0.43
+362,2016,Fruits,Papaya (Per Kilogram),1.97
+363,2016,Fruits,Pear (Each),0.99
+364,2016,Fruits,Watermelon (Per Kilogram),1.52
+365,2016,Hawker Food,Chicken Nasi Briyani (Per Plate),5.32
+366,2016,Hawker Food,Chicken Rice (Per Plate),3.25
+367,2016,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.22
+368,2016,Hawker Food,Fishball Noodle (Per Bowl),3.26
+369,2016,Hawker Food,Fried Carrot Cake (Per Plate),2.89
+370,2016,Hawker Food,Ice Kachang (Per Bowl),1.93
+371,2016,Hawker Food,Mee Rebus (Per Bowl),3.07
+372,2016,Hawker Food,Roti Prata (Plain) (Per Piece),1.02
+373,2016,Meat,"Beef, Chilled (Per Kilogram)",23.86
+374,2016,Meat,"Chicken Wing, Chilled (Per Kilogram)",8.04
+375,2016,Meat,"Duck, Chilled (Per Kilogram)",7.09
+376,2016,Meat,"Lean Pork, Chilled (Per Kilogram)",13.81
+377,2016,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.23
+378,2016,Meat,"Mutton, Chilled (Per Kilogram)",18.27
+379,2016,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",17.2
+380,2016,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",4.78
+381,2016,Meat,"Streaky Pork, Chilled (Per Kilogram)",15.76
+382,2016,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.35
+383,2016,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),4.56
+384,2016,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.81
+385,2016,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.17
+386,2016,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),6.23
+387,2016,Petrol,"Petrol, 92 Octane (Per Litre)",1.77
+388,2016,Petrol,"Petrol, 95 Octane (Per Litre)",1.82
+389,2016,Petrol,"Petrol, 98 Octane (Per Litre)",2.17
+390,2016,Rice,Premium Thai Rice (Per 5 Kilogram),13.13
+391,2016,Vegetables,Broccoli (Per Kilogram),6.31
+392,2016,Vegetables,Cabbage (Per Kilogram),2.26
+393,2016,Vegetables,Carrots (Per Kilogram),2.13
+394,2016,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.89
+395,2016,Vegetables,Potatoes (Per Kilogram),2.07
+396,2016,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.32
+397,2016,Vegetables,Spinach (Bayam) (Per Kilogram),2.81
+398,2016,Vegetables,Tomatoes (Per Kilogram),2.25
+399,2017,Bread,Ordinary White Bread (Per 400 Gram),1.63
+400,2017,Bread,Vitamin Enriched Bread (Per 400 Gram),1.8
+401,2017,Bread,Wholemeal Bread (Per 400 Gram),2.04
+402,2017,Fish & Seafood,Cod Fish (Per Kilogram),65.05
+403,2017,Fish & Seafood,Flowery Grouper (Per Kilogram),14.19
+404,2017,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),7.25
+405,2017,Fish & Seafood,Golden Snapper (Per Kilogram),18.57
+406,2017,Fish & Seafood,Medium Prawns (Per Kilogram),19.15
+407,2017,Fish & Seafood,Salmon (Per Kilogram),31.28
+408,2017,Fish & Seafood,Sea Bass (Per Kilogram),12.19
+409,2017,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),9.01
+410,2017,Fish & Seafood,Small Prawns (Per Kilogram),14.07
+411,2017,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),12.2
+412,2017,Fish & Seafood,Squids (Per Kilogram),14.97
+413,2017,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),57.28
+414,2017,Fish & Seafood,White Pomfret (Per Kilogram),28.69
+415,2017,Fruits,Apple (Each),0.42
+416,2017,Fruits,Bananas (Per Kilogram),2.35
+417,2017,Fruits,Grapes (Per Kilogram),9.69
+418,2017,Fruits,Orange (Each),0.44
+419,2017,Fruits,Papaya (Per Kilogram),1.96
+420,2017,Fruits,Pear (Each),1.01
+421,2017,Fruits,Watermelon (Per Kilogram),1.55
+422,2017,Hawker Food,Chicken Nasi Briyani (Per Plate),5.51
+423,2017,Hawker Food,Chicken Rice (Per Plate),3.29
+424,2017,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.27
+425,2017,Hawker Food,Fishball Noodle (Per Bowl),3.31
+426,2017,Hawker Food,Fried Carrot Cake (Per Plate),2.94
+427,2017,Hawker Food,Ice Kachang (Per Bowl),1.97
+428,2017,Hawker Food,Mee Rebus (Per Bowl),3.16
+429,2017,Hawker Food,Roti Prata (Plain) (Per Piece),1.05
+430,2017,Meat,"Beef, Chilled (Per Kilogram)",24.24
+431,2017,Meat,"Chicken Wing, Chilled (Per Kilogram)",8.03
+432,2017,Meat,"Duck, Chilled (Per Kilogram)",7.33
+433,2017,Meat,"Lean Pork, Chilled (Per Kilogram)",13.7
+434,2017,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.36
+435,2017,Meat,"Mutton, Chilled (Per Kilogram)",18.27
+436,2017,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",17.33
+437,2017,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",5.0
+438,2017,Meat,"Streaky Pork, Chilled (Per Kilogram)",15.73
+439,2017,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.58
+440,2017,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),4.48
+441,2017,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.81
+442,2017,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.09
+443,2017,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),6.29
+444,2017,Petrol,"Petrol, 92 Octane (Per Litre)",1.95
+445,2017,Petrol,"Petrol, 95 Octane (Per Litre)",2.0
+446,2017,Petrol,"Petrol, 98 Octane (Per Litre)",2.33
+447,2017,Rice,Premium Thai Rice (Per 5 Kilogram),13.01
+448,2017,Vegetables,Broccoli (Per Kilogram),6.09
+449,2017,Vegetables,Cabbage (Per Kilogram),2.25
+450,2017,Vegetables,Carrots (Per Kilogram),2.16
+451,2017,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.82
+452,2017,Vegetables,Potatoes (Per Kilogram),2.18
+453,2017,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.33
+454,2017,Vegetables,Spinach (Bayam) (Per Kilogram),2.88
+455,2017,Vegetables,Tomatoes (Per Kilogram),2.27
+456,2018,Bread,Ordinary White Bread (Per 400 Gram),1.68
+457,2018,Bread,Vitamin Enriched Bread (Per 400 Gram),1.83
+458,2018,Bread,Wholemeal Bread (Per 400 Gram),2.03
+459,2018,Fish & Seafood,Cod Fish (Per Kilogram),65.39
+460,2018,Fish & Seafood,Flowery Grouper (Per Kilogram),13.78
+461,2018,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),7.92
+462,2018,Fish & Seafood,Golden Snapper (Per Kilogram),18.95
+463,2018,Fish & Seafood,Medium Prawns (Per Kilogram),19.6
+464,2018,Fish & Seafood,Salmon (Per Kilogram),30.96
+465,2018,Fish & Seafood,Sea Bass (Per Kilogram),11.99
+466,2018,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),9.85
+467,2018,Fish & Seafood,Small Prawns (Per Kilogram),14.45
+468,2018,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),12.4
+469,2018,Fish & Seafood,Squids (Per Kilogram),16.24
+470,2018,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),59.01
+471,2018,Fish & Seafood,White Pomfret (Per Kilogram),29.68
+472,2018,Fruits,Apple (Each),0.43
+473,2018,Fruits,Bananas (Per Kilogram),2.34
+474,2018,Fruits,Grapes (Per Kilogram),9.89
+475,2018,Fruits,Orange (Each),0.44
+476,2018,Fruits,Papaya (Per Kilogram),2.17
+477,2018,Fruits,Pear (Each),1.03
+478,2018,Fruits,Watermelon (Per Kilogram),1.65
+479,2018,Hawker Food,Chicken Nasi Briyani (Per Plate),5.56
+480,2018,Hawker Food,Chicken Rice (Per Plate),3.36
+481,2018,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.29
+482,2018,Hawker Food,Fishball Noodle (Per Bowl),3.38
+483,2018,Hawker Food,Fried Carrot Cake (Per Plate),3.01
+484,2018,Hawker Food,Ice Kachang (Per Bowl),1.98
+485,2018,Hawker Food,Mee Rebus (Per Bowl),3.22
+486,2018,Hawker Food,Roti Prata (Plain) (Per Piece),1.07
+487,2018,Meat,"Beef, Chilled (Per Kilogram)",24.89
+488,2018,Meat,"Chicken Wing, Chilled (Per Kilogram)",8.05
+489,2018,Meat,"Duck, Chilled (Per Kilogram)",7.38
+490,2018,Meat,"Lean Pork, Chilled (Per Kilogram)",13.73
+491,2018,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.35
+492,2018,Meat,"Mutton, Chilled (Per Kilogram)",18.53
+493,2018,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",17.31
+494,2018,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",4.89
+495,2018,Meat,"Streaky Pork, Chilled (Per Kilogram)",15.78
+496,2018,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.44
+497,2018,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),4.74
+498,2018,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),2.86
+499,2018,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.14
+500,2018,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),6.31
+501,2018,Petrol,"Petrol, 92 Octane (Per Litre)",2.08
+502,2018,Petrol,"Petrol, 95 Octane (Per Litre)",2.14
+503,2018,Petrol,"Petrol, 98 Octane (Per Litre)",2.47
+504,2018,Rice,Premium Thai Rice (Per 5 Kilogram),13.06
+505,2018,Vegetables,Broccoli (Per Kilogram),5.68
+506,2018,Vegetables,Cabbage (Per Kilogram),2.23
+507,2018,Vegetables,Carrots (Per Kilogram),2.16
+508,2018,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.54
+509,2018,Vegetables,Potatoes (Per Kilogram),2.23
+510,2018,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.46
+511,2018,Vegetables,Spinach (Bayam) (Per Kilogram),3.03
+512,2018,Vegetables,Tomatoes (Per Kilogram),2.25
+513,2019,Bread,Ordinary White Bread (Per 400 Gram),1.73
+514,2019,Bread,Vitamin Enriched Bread (Per 400 Gram),1.65
+515,2019,Bread,Wholemeal Bread (Per 400 Gram),2.07
+516,2019,Fish & Seafood,Cod Fish (Per Kilogram),66.06
+517,2019,Fish & Seafood,Flowery Grouper (Per Kilogram),14.13
+518,2019,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),8.26
+519,2019,Fish & Seafood,Golden Snapper (Per Kilogram),18.45
+520,2019,Fish & Seafood,Medium Prawns (Per Kilogram),19.68
+521,2019,Fish & Seafood,Salmon (Per Kilogram),30.09
+522,2019,Fish & Seafood,Sea Bass (Per Kilogram),11.93
+523,2019,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),9.96
+524,2019,Fish & Seafood,Small Prawns (Per Kilogram),14.9
+525,2019,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),12.77
+526,2019,Fish & Seafood,Squids (Per Kilogram),17.02
+527,2019,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),59.63
+528,2019,Fish & Seafood,White Pomfret (Per Kilogram),29.06
+529,2019,Fruits,Apple (Each),0.43
+530,2019,Fruits,Bananas (Per Kilogram),2.38
+531,2019,Fruits,Grapes (Per Kilogram),10.22
+532,2019,Fruits,Orange (Each),0.56
+533,2019,Fruits,Papaya (Per Kilogram),2.21
+534,2019,Fruits,Pear (Each),1.29
+535,2019,Fruits,Watermelon (Per Kilogram),1.6
+536,2019,Hawker Food,Chicken Nasi Briyani (Per Plate),5.58
+537,2019,Hawker Food,Chicken Rice (Per Plate),3.4
+538,2019,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.34
+539,2019,Hawker Food,Fishball Noodle (Per Bowl),3.46
+540,2019,Hawker Food,Fried Carrot Cake (Per Plate),3.05
+541,2019,Hawker Food,Ice Kachang (Per Bowl),2.03
+542,2019,Hawker Food,Mee Rebus (Per Bowl),3.26
+543,2019,Hawker Food,Roti Prata (Plain) (Per Piece),1.09
+544,2019,Meat,"Beef, Chilled (Per Kilogram)",24.91
+545,2019,Meat,"Chicken Wing, Chilled (Per Kilogram)",8.4
+546,2019,Meat,"Duck, Chilled (Per Kilogram)",7.04
+547,2019,Meat,"Lean Pork, Chilled (Per Kilogram)",13.97
+548,2019,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.33
+549,2019,Meat,"Mutton, Chilled (Per Kilogram)",19.9
+550,2019,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",16.91
+551,2019,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",4.55
+552,2019,Meat,"Streaky Pork, Chilled (Per Kilogram)",15.67
+553,2019,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.36
+554,2019,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),5.89
+555,2019,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),3.21
+556,2019,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.39
+557,2019,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),6.14
+558,2019,Petrol,"Petrol, 92 Octane (Per Litre)",2.08
+559,2019,Petrol,"Petrol, 95 Octane (Per Litre)",2.12
+560,2019,Petrol,"Petrol, 98 Octane (Per Litre)",2.5
+561,2019,Rice,Premium Thai Rice (Per 5 Kilogram),13.42
+562,2019,Vegetables,Broccoli (Per Kilogram),5.61
+563,2019,Vegetables,Cabbage (Per Kilogram),2.31
+564,2019,Vegetables,Carrots (Per Kilogram),2.08
+565,2019,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.05
+566,2019,Vegetables,Potatoes (Per Kilogram),2.26
+567,2019,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.77
+568,2019,Vegetables,Spinach (Bayam) (Per Kilogram),3.46
+569,2019,Vegetables,Tomatoes (Per Kilogram),2.2
+570,2020,Bread,Ordinary White Bread (Per 400 Gram),1.74
+571,2020,Bread,Vitamin Enriched Bread (Per 400 Gram),1.63
+572,2020,Bread,Wholemeal Bread (Per 400 Gram),2.1
+573,2020,Fish & Seafood,Cod Fish (Per Kilogram),65.63
+574,2020,Fish & Seafood,Flowery Grouper (Per Kilogram),13.75
+575,2020,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),8.21
+576,2020,Fish & Seafood,Golden Snapper (Per Kilogram),18.79
+577,2020,Fish & Seafood,Medium Prawns (Per Kilogram),20.12
+578,2020,Fish & Seafood,Salmon (Per Kilogram),29.83
+579,2020,Fish & Seafood,Sea Bass (Per Kilogram),11.7
+580,2020,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),9.93
+581,2020,Fish & Seafood,Small Prawns (Per Kilogram),15.28
+582,2020,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),12.95
+583,2020,Fish & Seafood,Squids (Per Kilogram),17.72
+584,2020,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),60.32
+585,2020,Fish & Seafood,White Pomfret (Per Kilogram),30.15
+586,2020,Fruits,Apple (Each),0.43
+587,2020,Fruits,Bananas (Per Kilogram),2.43
+588,2020,Fruits,Grapes (Per Kilogram),11.18
+589,2020,Fruits,Orange (Each),0.59
+590,2020,Fruits,Papaya (Per Kilogram),2.2
+591,2020,Fruits,Pear (Each),1.28
+592,2020,Fruits,Watermelon (Per Kilogram),1.59
+593,2020,Hawker Food,Chicken Nasi Briyani (Per Plate),5.65
+594,2020,Hawker Food,Chicken Rice (Per Plate),3.47
+595,2020,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.37
+596,2020,Hawker Food,Fishball Noodle (Per Bowl),3.5
+597,2020,Hawker Food,Fried Carrot Cake (Per Plate),3.09
+598,2020,Hawker Food,Ice Kachang (Per Bowl),2.07
+599,2020,Hawker Food,Mee Rebus (Per Bowl),3.3
+600,2020,Hawker Food,Roti Prata (Plain) (Per Piece),1.11
+601,2020,Meat,"Beef, Chilled (Per Kilogram)",25.18
+602,2020,Meat,"Chicken Wing, Chilled (Per Kilogram)",8.43
+603,2020,Meat,"Duck, Chilled (Per Kilogram)",7.17
+604,2020,Meat,"Lean Pork, Chilled (Per Kilogram)",15.32
+605,2020,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.9
+606,2020,Meat,"Mutton, Chilled (Per Kilogram)",22.03
+607,2020,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",18.51
+608,2020,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",5.88
+609,2020,Meat,"Streaky Pork, Chilled (Per Kilogram)",17.19
+610,2020,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.32
+611,2020,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),5.77
+612,2020,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),3.33
+613,2020,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.4
+614,2020,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),6.16
+615,2020,Petrol,"Petrol, 92 Octane (Per Litre)",1.91
+616,2020,Petrol,"Petrol, 95 Octane (Per Litre)",1.95
+617,2020,Petrol,"Petrol, 98 Octane (Per Litre)",2.36
+618,2020,Rice,Premium Thai Rice (Per 5 Kilogram),13.75
+619,2020,Vegetables,Broccoli (Per Kilogram),5.7
+620,2020,Vegetables,Cabbage (Per Kilogram),2.34
+621,2020,Vegetables,Carrots (Per Kilogram),2.03
+622,2020,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.19
+623,2020,Vegetables,Potatoes (Per Kilogram),2.41
+624,2020,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),3.98
+625,2020,Vegetables,Spinach (Bayam) (Per Kilogram),3.57
+626,2020,Vegetables,Tomatoes (Per Kilogram),2.63
+627,2021,Bread,Ordinary White Bread (Per 400 Gram),1.75
+628,2021,Bread,Vitamin Enriched Bread (Per 400 Gram),1.66
+629,2021,Bread,Wholemeal Bread (Per 400 Gram),2.1
+630,2021,Fish & Seafood,Cod Fish (Per Kilogram),63.47
+631,2021,Fish & Seafood,Flowery Grouper (Per Kilogram),13.36
+632,2021,Fish & Seafood,Gold Banded Scad (Kuning) (Per Kilogram),8.94
+633,2021,Fish & Seafood,Golden Snapper (Per Kilogram),19.1
+634,2021,Fish & Seafood,Medium Prawns (Per Kilogram),19.06
+635,2021,Fish & Seafood,Salmon (Per Kilogram),29.48
+636,2021,Fish & Seafood,Sea Bass (Per Kilogram),11.68
+637,2021,Fish & Seafood,Sea Bream (Ang Ko Li) (Per Kilogram),11.25
+638,2021,Fish & Seafood,Small Prawns (Per Kilogram),14.71
+639,2021,Fish & Seafood,Spanish Mackerel (Batang) (Per Kilogram),13.47
+640,2021,Fish & Seafood,Squids (Per Kilogram),17.96
+641,2021,Fish & Seafood,Threadfin (Kurau) (Per Kilogram),58.42
+642,2021,Fish & Seafood,White Pomfret (Per Kilogram),29.21
+643,2021,Fruits,Apple (Each),0.45
+644,2021,Fruits,Bananas (Per Kilogram),2.45
+645,2021,Fruits,Grapes (Per Kilogram),12.89
+646,2021,Fruits,Orange (Each),0.61
+647,2021,Fruits,Papaya (Per Kilogram),2.35
+648,2021,Fruits,Pear (Each),1.25
+649,2021,Fruits,Watermelon (Per Kilogram),1.55
+650,2021,Hawker Food,Chicken Nasi Briyani (Per Plate),5.79
+651,2021,Hawker Food,Chicken Rice (Per Plate),3.54
+652,2021,Hawker Food,Economical Rice (1 Meat & 2 Vegetables) (Per Plate),3.4
+653,2021,Hawker Food,Fishball Noodle (Per Bowl),3.56
+654,2021,Hawker Food,Fried Carrot Cake (Per Plate),3.14
+655,2021,Hawker Food,Ice Kachang (Per Bowl),2.14
+656,2021,Hawker Food,Mee Rebus (Per Bowl),3.32
+657,2021,Hawker Food,Roti Prata (Plain) (Per Piece),1.12
+658,2021,Meat,"Beef, Chilled (Per Kilogram)",28.74
+659,2021,Meat,"Chicken Wing, Chilled (Per Kilogram)",8.27
+660,2021,Meat,"Duck, Chilled (Per Kilogram)",7.09
+661,2021,Meat,"Lean Pork, Chilled (Per Kilogram)",15.31
+662,2021,Meat,"Lean Pork, Frozen (Per 500 Gram)",4.83
+663,2021,Meat,"Mutton, Chilled (Per Kilogram)",22.17
+664,2021,Meat,"Pork Rib Bones, Chilled (Per Kilogram)",18.03
+665,2021,Meat,"Pork Rib Bones, Frozen (Per 500 Gram)",6.09
+666,2021,Meat,"Streaky Pork, Chilled (Per Kilogram)",17.32
+667,2021,Meat,"Whole Chicken, Chilled (Per Kilogram)",6.34
+668,2021,"Milk, Cheese & Eggs",Cheese (Per 12 Slices),5.83
+669,2021,"Milk, Cheese & Eggs",Fresh Milk (Per Litre),3.37
+670,2021,"Milk, Cheese & Eggs",Hen Eggs (Per 10),2.49
+671,2021,"Milk, Cheese & Eggs",Infant Milk Powder (Per 100 Gram),6.17
+672,2021,Petrol,"Petrol, 92 Octane (Per Litre)",2.26
+673,2021,Petrol,"Petrol, 95 Octane (Per Litre)",2.3
+674,2021,Petrol,"Petrol, 98 Octane (Per Litre)",2.79
+675,2021,Rice,Premium Thai Rice (Per 5 Kilogram),13.38
+676,2021,Vegetables,Broccoli (Per Kilogram),6.25
+677,2021,Vegetables,Cabbage (Per Kilogram),2.71
+678,2021,Vegetables,Carrots (Per Kilogram),2.03
+679,2021,Vegetables,Chinese Kale (Kailan) (Per Kilogram),5.24
+680,2021,Vegetables,Potatoes (Per Kilogram),2.64
+681,2021,Vegetables,Small Mustard (Chye Sim) (Per Kilogram),4.22
+682,2021,Vegetables,Spinach (Bayam) (Per Kilogram),3.91
+683,2021,Vegetables,Tomatoes (Per Kilogram),2.9
