@@ -1,161 +1,18 @@
-import pickle
 from typing import List
 
-import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
-from pages.config.config import *
-from dash import Input, Output, dcc, html, callback, dash_table
-import dash
+from dash import Input, Output, callback
 from plotly.subplots import make_subplots
 
+from pages.config.config import *
 from src.trade import TradeStat, UnifiedStats
-from utils import trade_list
+from utils import regions, all_countries, world_exports, world_imports, b
 
-TRADE_DATA = './data/trade_data/trade_data.pkl'
+import styles
+
 labels = ['Export', 'Import']
 colors = ['#1c9099', '#a6bddb']
 
-with open(TRADE_DATA, 'rb') as inp:
-  s = pickle.load(inp)
-b = UnifiedStats()
-b.extend(s)
-world_imports = b.get_indicator(partner="World", indicator="Import")
-world_exports = b.get_indicator(partner="World", indicator="Export")
-b.filter()
-
-all_countries = b.countries
-country_list = [country.name for country in all_countries]
-full_list = b.product_codes()
-pc_list = [pc for pc in full_list if pc not in trade_list]
-
-regions: UnifiedStats = UnifiedStats()
-regions.extend(b.region_list)
-
-# --- exports/imports table ---
-df_col = [{
-  "name": "Import country",
-  'id': 'country_im'
-}, {
-  "name": "Imports (US$ Thousands)",
-  'id': 'import-data'
-}, {
-  "name": "Export country",
-  'id': 'country_ex'
-}, {
-  "name": "Exports (US$ Thousands)",
-  'id': 'export-data'
-}]
-
-# --- init dash ---
-dash.register_page(__name__, name='Trade statistics', path='/trade-stats')
-
-
-def layout():
-  return html.Div([
-    dbc.Row([
-      html.H1(children="Geospatial graph of Exports and Imports"),
-      dbc.Col([dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown')],
-              style={"width": "25%"}),
-      dbc.Col([dcc.Dropdown(pc_list, pc_list[0], id='prodcode-network-dropdown')],
-              style={"width": "25%"}),
-      dbc.Col([
-        dcc.RadioItems(
-          labels, labels[0], id='ind-network-dropdown')
-      ],
-              style={"width": "25%"}),
-    ], ),
-    dbc.Row([
-      dbc.Row([dcc.Graph(id='geospatial-network')],
-              style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '50%'
-              }),
-      dbc.Row([dcc.Graph(id='sunburst')],
-              style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '50%'
-              }),
-    ], ),
-    dbc.Row([
-      html.H1(children="Percentage of Exports and Imports"),
-      dbc.Row([
-        dbc.Col([dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown1')],
-                style={"width": "25%"}),
-      ]),
-    ], ),
-    dbc.Row([
-      dbc.Col(dcc.Graph(id="pie-graph-tradereliance")),
-    ], ),
-    dbc.Row([
-      html.H1(children="Exports and Imports over time"),
-      dbc.Col(
-        [dcc.Dropdown(country_list, 'Malaysia', id='country-lineg-dropdown')],
-        style={"width": "25%"}),
-    ], ),
-    dbc.Row([
-      dbc.Row([dcc.Graph(id="line-graph-trade")],
-              style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '100%'
-              }),
-    ], ),
-    dbc.Row([
-      dbc.Col([dcc.Dropdown(pc_list, pc_list[0], id='pc-lineg-dropdown')],
-              style={"width": "25%"}),
-    ], ),
-    dbc.Row([
-      dbc.Col([
-        dcc.RadioItems(
-          ['Top 5', 'Top 10', "All"], 'Top 5', id="checklist-pc", inline=True)
-      ],
-              style={"width": "25%"}),
-      dbc.Row([dcc.Graph(id="pc-line-graph-trade")],
-              style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '100%'
-              }),
-    ], ),
-    dbc.Row([
-      html.H1(children="Products traded in Singapore"),
-      dbc.Row([dcc.Graph(id="line-graph-timeseries")],
-              style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '100%'
-              }),
-      dbc.Col([
-        dcc.Checklist(id="checklist",
-                      options=b.product_codes(),
-                      value=["Fuels", "Manufactures"],
-                      inline=True)
-      ],
-              style={
-                "width": "25%",
-                'display': 'inline-block'
-              }),
-    ], ),
-    dbc.Row([
-      html.H1(children="Trading partners of Singapore"),
-      dbc.Col([
-        dcc.RadioItems(['Top 5', 'Top 10', "All"],
-                       'Top 5',
-                       id="c-checklist-pc",
-                       inline=True)
-      ],
-              style={"width": "25%"}),
-      dbc.Row([dcc.Graph(id="c-line-graph-timeseries")],
-              style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '100%'
-              }),
-      dbc.Row([dash_table.DataTable(id="tbl", columns=df_col)])
-    ], ),
-  ])
 
 def createScatter(graph, row, col, **kwargs):
   return graph.append_trace(go.Scatter(name=kwargs['name'],
@@ -188,16 +45,17 @@ def graph_update(year_value, pc_value, ind_value):
   fig_network = go.Figure()
 
   fig_network.add_trace(
-    go.Scattergeo(
-      locationmode='country names',
-      lon=longitude,
-      lat=latitude,
-      hoverinfo='text',
-      text=e.get_country_names(),
-      mode='markers',
-      marker=dict(size=2,
-                  color='rgb(255, 0, 0)',
-                  line=dict(width=3, color='rgba(68, 68, 68, 0)'))))
+    go.Scattergeo(locationmode='country names',
+                  lon=longitude,
+                  lat=latitude,
+                  hoverinfo='text',
+                  text=[str(x) for x in e.get_country_names()],
+                  mode='markers',
+                  hovertemplate="%{text} <extra></extra>",
+                  marker=dict(size=5,
+                              color=styles.colors['pink'],
+                              line=dict(width=3,
+                                        color='rgba(68, 68, 68, 0)'))))
 
   # Singapore
   fig_network.add_trace(
@@ -206,9 +64,10 @@ def graph_update(year_value, pc_value, ind_value):
                   lat=[1.290270],
                   hoverinfo='text',
                   text=["Singapore"],
+                  hovertemplate="%{text} <extra></extra>",
                   mode='markers',
-                  marker=dict(size=2,
-                              color='rgb(255, 0, 0)',
+                  marker=dict(size=8,
+                              color=styles.colors['red'],
                               line=dict(width=3,
                                         color='rgba(68, 68, 68, 0)'))))
 
@@ -220,10 +79,14 @@ def graph_update(year_value, pc_value, ind_value):
         fig_network.add_trace(
           go.Scattergeo(
             locationmode='country names',
+            hoverinfo='skip',
+            text=float(data),
+            # hoverinfo='text',
+            # hovertemplate="%{text} <extra></extra>",
             lon=[103.851959, all_ind[i].country_info.long],
             lat=[1.290270, all_ind[i].country_info.lat],
             mode='lines',
-            line=dict(width=1, color='red'),
+            line=dict(width=5, color=styles.colors['blue']),
             opacity=(float(data) / max_),
           ))
   fig_network.update_layout(
@@ -232,6 +95,7 @@ def graph_update(year_value, pc_value, ind_value):
     showlegend=False,
     height=600,
   )
+  fig_network.update_geos(projection_type="orthographic")
 
   return fig_network
 
@@ -356,8 +220,12 @@ def lineg_update(country_value):
     elif i.indicator == "Export":
       row, col = (1, 2)
       lg = '2'
-    createScatter(fig_line, row, col, name=i.productcode,
-                  x=list(i.stats.keys()), y=list(i.stats.values()),
+    createScatter(fig_line,
+                  row,
+                  col,
+                  name=i.productcode,
+                  x=list(i.stats.keys()),
+                  y=list(i.stats.values()),
                   legendgroup=lg)
   return fig_line
 
@@ -402,11 +270,19 @@ def pc_lineg_update(pc_value, top_n):
       exp = b.get_indicator(partner=e[0],
                             productcode=pc_value,
                             indicator="Export")[0]
-      createScatter(fig_line, 1, 1, name=z[0],
-                    x=list(imp.stats.keys()), y=list(imp.stats.values()),
+      createScatter(fig_line,
+                    1,
+                    1,
+                    name=z[0],
+                    x=list(imp.stats.keys()),
+                    y=list(imp.stats.values()),
                     legendgroup='1')
-      createScatter(fig_line, 1, 2, name=e[0],
-                    x=list(exp.stats.keys()), y=list(exp.stats.values()),
+      createScatter(fig_line,
+                    1,
+                    2,
+                    name=e[0],
+                    x=list(exp.stats.keys()),
+                    y=list(exp.stats.values()),
                     legendgroup='2')
   else:
     for i in country_stats:
@@ -416,9 +292,13 @@ def pc_lineg_update(pc_value, top_n):
       elif i.indicator == "Export":
         row, col = (1, 2)
         lg = '2'
-      createScatter(fig_line, row, col, name=i.partner,
-                  x=list(i.stats.keys()), y=list(i.stats.values()),
-                  legendgroup=lg)
+      createScatter(fig_line,
+                    row,
+                    col,
+                    name=i.partner,
+                    x=list(i.stats.keys()),
+                    y=list(i.stats.values()),
+                    legendgroup=lg)
   return fig_line
 
 
@@ -433,12 +313,20 @@ def update_line_chart(pc):
   )
   for i, e in zip(world_imports, world_exports):
     if i.productcode in pc:
-      createScatter(fig_line, 1, 1, name=i.productcode,
-                    x=list(i.stats.keys()), y=list(i.stats.values()),
+      createScatter(fig_line,
+                    1,
+                    1,
+                    name=i.productcode,
+                    x=list(i.stats.keys()),
+                    y=list(i.stats.values()),
                     legendgroup='1')
     if e.productcode in pc:
-      createScatter(fig_line, 1, 2, name=e.productcode,
-                    x=list(e.stats.keys()), y=list(e.stats.values()),
+      createScatter(fig_line,
+                    1,
+                    2,
+                    name=e.productcode,
+                    x=list(e.stats.keys()),
+                    y=list(e.stats.values()),
                     legendgroup='2')
   return fig_line
 
@@ -453,12 +341,9 @@ def update_line_chart(top_n):
     legend_tracegroupgap=500,
   )
   df_data = [{
-    'country_im': "Select"
-  }, {
-    'import-data': "Top n"
-  }, {
-    'country_ex': "to get"
-  }, {
+    'country_im': "Select",
+    'import-data': "Top n",
+    'country_ex': "to get",
     'export-data': "data"
   }]
   if top_n != "All":
@@ -511,11 +396,17 @@ def update_line_chart(top_n):
           else:
             total_exports[year] += x.stats[year]
       # draw line
-      createScatter(fig_cline, 1, 1, name=z[0],
+      createScatter(fig_cline,
+                    1,
+                    1,
+                    name=z[0],
                     x=list(total_imports.keys()),
                     y=list(total_imports.values()),
                     legendgroup='1')
-      createScatter(fig_cline, 1, 2, name=e[0],
+      createScatter(fig_cline,
+                    1,
+                    2,
+                    name=e[0],
                     x=list(total_exports.keys()),
                     y=list(total_exports.values()),
                     legendgroup='2')
@@ -547,11 +438,17 @@ def update_line_chart(top_n):
           else:
             total_exports[year] += e.stats[year]
       # draw line
-      createScatter(fig_cline, 1, 1, name=country,
+      createScatter(fig_cline,
+                    1,
+                    1,
+                    name=country,
                     x=list(total_imports.keys()),
                     y=list(total_imports.values()),
                     legendgroup='1')
-      createScatter(fig_cline, 1, 2, name=country,
+      createScatter(fig_cline,
+                    1,
+                    2,
+                    name=country,
                     x=list(total_exports.keys()),
                     y=list(total_exports.values()),
                     legendgroup='2')

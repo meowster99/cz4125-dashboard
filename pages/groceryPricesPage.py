@@ -2,16 +2,18 @@
 Renders the grocery pricing information/ related charts on the page.
 """
 
-from dash import Dash, html, dcc, Input, Output, dash_table, callback
 import dash
-import plotly.express as px
-import pandas as pd
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-from plotly.colors import n_colors
-import numpy as np
 import dash_daq as daq
-import utils, styles
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import Dash, Input, Output, callback, dash_table, dcc, html
+from plotly.colors import n_colors
+from plotly.subplots import make_subplots
+
+import styles
+import utils
 from pages.config.config import YEAR_RANGE
 
 # TODO: @chin voon, move your geospatial trade charts related to groceries here
@@ -96,48 +98,30 @@ def layout(prodcode=["Food"]):
                      html.Div(id='info-c3'),
                    ]),
         ]),
-      dcc.Graph(id='grocprices', ),
-      html.Div(style={"width": "25%"},
-               children=[
-                 html.H1(children="Geospatial graph of Exports and Imports"),
-                 html.Div(
-                   style={"width": "25%"},
-                   children=[
-                     dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown')
-                   ],
-                 ),
-                 html.Div(
-                   style={"width": "25%"},
-                   children=[
-                     dcc.Dropdown(prodcode,
-                                  'Food',
-                                  id='prodcode-network-dropdown')
-                   ],
-                 ),
-                 html.Div(children=[
-                   dcc.RadioItems(['Export', 'Import'],
-                                  'Export',
-                                  id='ind-network-dropdown')
-                 ], ),
-               ]),
-      html.Div([
-        html.Div(
-          style={
-            'display': 'inline-block',
-            "margin": 0,
-            'width': '50%'
-          },
-          children=[dcc.Graph(id='geospatial-network')],
-        ),
-        html.Div(
-          style={
-            'display': 'inline-block',
-            "margin": 0,
-            'width': '50%'
-          },
-          children=[dcc.Graph(id='sunburst')],
-        )
-      ])
+      html.Div(children=[
+        html.H1(children="Geospatial graph of Exports and Imports"),
+        html.Div(children=[
+          dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown'),
+          dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown'),
+          html.Div(children=[
+            dcc.RadioItems(['Export', 'Import'], 'Export', id='ind-network-dropdown')
+                  ]),
+                ],
+                 style={"width": "25%"})
+          ],
+               className="geospatial-options"),
+      html.Div(children=[
+        html.Div(children=[
+          dcc.Graph(id='geospatial-network')],),
+        html.Div(children=[
+          dcc.Graph(id='sunburst')],),
+      ],
+               style={
+                  'display': 'inline-block',
+                  "margin": 0,
+                  'width': '100%'
+                },
+               className="geospatial-graph"),
     ])
 
 

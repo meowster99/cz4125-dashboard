@@ -1,13 +1,16 @@
-from dash import Dash, html, dcc, Input, Output, dash_table, callback
-import dash
-import plotly.express as px
-import pandas as pd
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-from plotly.colors import n_colors
 import re
-import utils, styles
+
+import dash
 import dash_daq as daq
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import Dash, Input, Output, callback, dash_table, dcc, html
+from plotly.colors import n_colors
+from plotly.subplots import make_subplots
+
+import styles
+import utils
 
 dash.register_page(__name__, name='Wages', path='/wage-tracker')
 filter = [

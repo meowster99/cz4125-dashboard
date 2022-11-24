@@ -2,15 +2,17 @@
 Renders the background information about the metric/ prices that we are tracking.
 """
 
-from dash import Dash, html, dcc, Input, Output, dash_table, callback
-import dash_bootstrap_components as dbc
-import dash
-import plotly.express as px
-import pandas as pd
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-from plotly.colors import n_colors
 import re
+
+import dash
+import dash_bootstrap_components as dbc
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import Dash, Input, Output, callback, dash_table, dcc, html
+from plotly.colors import n_colors
+from plotly.subplots import make_subplots
+
 from pages.config.config import YEAR_RANGE
 from utils import *
 
@@ -44,113 +46,119 @@ def layout(prodcode=['Wood']):
         html.P("Methods Employed in our Dashboard"),
         html.Ul(id='methods-list', children=[html.Li(i) for i in methods])
       ]),
-      dbc.Row([
+      html.Div(children=[
         html.H1(children="Geospatial graph of Exports and Imports"),
-        dbc.Col([dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown')],
-                style={"width": "25%"}),
-        dbc.Col([
-          dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown')
+        html.Div(children=[
+          dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown'),
+          dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown'),
+          html.Div(children=[
+            dcc.RadioItems(
+              ['Export', 'Import'], 'Export', id='ind-network-dropdown')
+          ]),
         ],
-                style={"width": "25%"}),
-        dbc.Col([
-          dcc.RadioItems(
-            ['Export', 'Import'], 'Export', id='ind-network-dropdown')
-        ],
-                style={"width": "25%"}),
-      ], ),
-      dbc.Row([
-        dbc.Row([dcc.Graph(id='geospatial-network')],
-                style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '50%'
-                }),
-        dbc.Row([dcc.Graph(id='sunburst')],
-                style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '50%'
-                }),
-      ], ),
-      dbc.Row([
+                 style={"width": "25%"})
+      ],
+               className="geospatial-options"),
+      html.Div(children=[
+        html.Div(children=[dcc.Graph(id='geospatial-network')], ),
+        html.Div(children=[dcc.Graph(id='sunburst')], ),
+      ],
+               style={
+                 'display': 'inline-block',
+                 "margin": 0,
+                 'width': '100%'
+               },
+               className="geospatial-graph"),
+      html.Div(children=[
         html.H1(children="Percentage of Exports and Imports"),
-        dbc.Row([
-          dbc.Col(
-            [dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown1')],
-            style={"width": "25%"}),
+        html.Div(children=[
+          html.Div(children=[
+            dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown1')
+          ],
+                   style={"width": "25%"}),
         ]),
-      ], ),
-      dbc.Row([
-        dbc.Col(dcc.Graph(id="pie-graph-tradereliance")),
-      ], ),
-      dbc.Row([
+      ],
+               className="pie-trade-dropdown"),
+      html.Div(children=[
+        html.Div(children=[dcc.Graph(id="pie-graph-tradereliance")]),
+      ],
+               className="pie-trade-graph"),
+      html.Div(children=[
         html.H1(children="Exports and Imports over time"),
-        dbc.Col([
+        html.Div(children=[
           dcc.Dropdown(country_list, 'Malaysia', id='country-lineg-dropdown')
         ],
-                style={"width": "25%"}),
-      ], ),
-      dbc.Row([
-        dbc.Row([dcc.Graph(id="line-graph-trade")],
-                style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '100%'
-                }),
-      ], ),
-      dbc.Row([
-        dbc.Col([dcc.Dropdown(prodcode, prodcode[0], id='pc-lineg-dropdown')],
-                style={"width": "25%"}),
-      ], ),
-      dbc.Row([
-        dbc.Col([
+                 style={"width": "25%"}),
+      ],
+               className="country-line-dropdown"),
+      html.Div(children=[
+        html.Div(children=[dcc.Graph(id="line-graph-trade")],
+                 style={
+                   'display': 'inline-block',
+                   "margin": 0,
+                   'width': '100%'
+                 }),
+      ],
+               className="country-line"),
+      html.Div(children=[
+        html.Div(children=[
+          dcc.Dropdown(prodcode, prodcode[0], id='pc-lineg-dropdown'),
           dcc.RadioItems(['Top 5', 'Top 10', "All"],
                          'Top 5',
                          id="checklist-pc",
                          inline=True)
         ],
-                style={"width": "25%"}),
-        dbc.Row([dcc.Graph(id="pc-line-graph-trade")],
-                style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '100%'
-                }),
-      ], ),
-      dbc.Row([
+                 style={"width": "25%"}),
+      ],
+               className="pc-line-dropdown"),
+      html.Div(children=[
+        html.Div(children=[dcc.Graph(id="pc-line-graph-trade")],
+                 style={
+                   'display': 'inline-block',
+                   "margin": 0,
+                   'width': '100%'
+                 }),
+      ],
+               className="pc-line"),
+      html.Div(children=[
         html.H1(children="Products traded in Singapore"),
-        dbc.Row([dcc.Graph(id="line-graph-timeseries")],
-                style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '100%'
-                }),
-        dbc.Col([
-          dcc.Checklist(id="checklist",
-                        options=b.product_codes(),
-                        value=["Fuels", "Manufactures"],
-                        inline=True)
+        html.Div(children=[dcc.Graph(id="line-graph-timeseries")],
+                 style={
+                   'display': 'inline-block',
+                   "margin": 0,
+                   'width': '100%'
+                 },
+                 className="line-graph-dropdown"),
+        html.Div(children=[
+          dcc.Dropdown(id="checklist",
+                       options=b.product_codes(),
+                       value=["Fuels", "Manufactures"],
+                       multi=True)
         ],
-                style={
-                  "width": "25%",
-                  'display': 'inline-block'
-                }),
-      ], ),
-      dbc.Row([
+                 style={
+                   "width": "25%",
+                   'display': 'inline-block'
+                 },
+                 className="line-graph"),
+      ]),
+      html.Div(children=[
         html.H1(children="Trading partners of Singapore"),
-        dbc.Col([
+        html.Div(children=[
           dcc.RadioItems(['Top 5', 'Top 10', "All"],
                          'Top 5',
                          id="c-checklist-pc",
                          inline=True)
         ],
-                style={"width": "25%"}),
-        dbc.Row([dcc.Graph(id="c-line-graph-timeseries")],
-                style={
-                  'display': 'inline-block',
-                  "margin": 0,
-                  'width': '100%'
-                }),
-        dbc.Row([dash_table.DataTable(id="tbl", columns=df_col)])
-      ], ),
+                 style={"width": "25%"},
+                 className="pc-checklist"),
+        html.Div(children=[dcc.Graph(id="c-line-graph-timeseries")],
+                 style={
+                   'display': 'inline-block',
+                   "margin": 0,
+                   'width': '100%'
+                 },
+                 className="all-country-line"),
+        html.Div(children=[dash_table.DataTable(id="tbl", columns=df_col)],
+                 className="trade-table")
+      ]),
     ])

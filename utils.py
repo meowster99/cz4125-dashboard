@@ -1,18 +1,19 @@
-from dash import Dash, html, dcc, Input, Output, dash_table
-import dash
-import plotly.express as px
-import pandas as pd
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-from plotly.colors import n_colors
-import re
-import random
-import styles
-import numpy as np
-from statsmodels.tsa.api import ExponentialSmoothing, SimpleExpSmoothing, Holt
 import pickle
-from src.trade import TradeStat, UnifiedStats
+import random
+import re
 
+import dash
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import Dash, Input, Output, dash_table, dcc, html
+from plotly.colors import n_colors
+from plotly.subplots import make_subplots
+from statsmodels.tsa.api import ExponentialSmoothing, Holt, SimpleExpSmoothing
+
+import styles
+from src.trade import TradeStat, UnifiedStats
 
 TRADE_DATA = './data/trade_data/trade_data.pkl'
 
@@ -20,12 +21,22 @@ with open(TRADE_DATA, 'rb') as inp:
   s = pickle.load(inp)
 b = UnifiedStats()
 b.extend(s)
+world_imports = b.get_indicator(partner="World", indicator="Import")
+world_exports = b.get_indicator(partner="World", indicator="Export")
 b.filter()
 
+regions: UnifiedStats = UnifiedStats()
+regions.extend(b.region_list)
+
 techniques = ['Anomaly Detection', 'Event Tagging', 'Change Point Detection']
-energy_list = ["Fuels", "Minerals", "Ores and Metals"]
-grocery_list = ["Food", "Agricultural Raw Materials", "Animals", "Food Products"]
-cpi_list = ['Food']
+energy_list = [
+  "Fuels", "Minerals", "Ores and Metals", "Chemical", "Raw materials"
+]
+grocery_list = ["Food", "Food Products", 'Vegetable']
+cpi_list = [
+  'Transportation', 'Consumer goods', "Agricultural Raw Materials", "Animal",
+  "Footwear", "Miscellaneous", 'Textiles and Clothing'
+]
 trade_list = list(set(energy_list + grocery_list + cpi_list))
 full_list = b.product_codes()
 pc_list = [pc for pc in full_list if pc not in trade_list]
@@ -47,6 +58,7 @@ df_col = [{
   "name": "Exports (US$ Thousands)",
   'id': 'export-data'
 }]
+
 
 # regression models function
 def ses(y, n):
@@ -122,8 +134,12 @@ def load_news_sentiments_datasets(global_local_choice):
   else:
     return pd.read_csv('data/anomaly_data/anomaly_local.csv')
 
+
 def load_changepoint_datasets(global_local_choice):
-    return pd.read_csv('data/changepoints_data/changepoints_local.csv') if global_local_choice == "Local" else pd.read_csv('data/changepoints_data/changepoints_local.csv')
+  return pd.read_csv('data/changepoints_data/changepoints_local.csv'
+                     ) if global_local_choice == "Local" else pd.read_csv(
+                       'data/changepoints_data/changepoints_local.csv')
+
 
 def filter_by_query_term(global_local_choice, sentiment_df, filters):
   tagged_df = get_tagged_df(global_local_choice)
@@ -134,17 +150,24 @@ def filter_by_query_term(global_local_choice, sentiment_df, filters):
                        how='right').query('query_term in @filters')
   return merged_df
 
+
 def get_technique_information(detection_method):
   if detection_method == 'Anomaly Detection':
-    return html.P('Employs the LevelShiftAD detector to track the difference between median values at two sliding windows of size 30 thus identifying the anomalies across datapoints.', className='subtext')
+    return html.P(
+      'Employs the LevelShiftAD detector to track the difference between median values at two sliding windows of size 30 thus identifying the anomalies across datapoints.',
+      className='subtext')
   elif detection_method == 'Event Tagging':
-    return html.P('Various macroeconomic events mentioned in the relevant news articles have been labelled on the chart.', className='subtext')
+    return html.P(
+      'Various macroeconomic events mentioned in the relevant news articles have been labelled on the chart.',
+      className='subtext')
   elif detection_method == 'Change Point Detection':
-    return html.P('Uses the Pruned Exact Linear Time algorithm to detect change points', className='subtext')
-  
+    return html.P(
+      'Uses the Pruned Exact Linear Time algorithm to detect change points',
+      className='subtext')
 
-def add_sentiment_traces(target_col, temp_sentiment_df, merged_df, global_local_choice,
-                         detection_method, fig):
+
+def add_sentiment_traces(target_col, temp_sentiment_df, merged_df,
+                         global_local_choice, detection_method, fig):
   if detection_method == 'Anomaly Detection':
     temp_sentiment_df['anomaly'] = temp_sentiment_df['anomaly'].map({
       0:
@@ -206,19 +229,38 @@ def add_sentiment_traces(target_col, temp_sentiment_df, merged_df, global_local_
 
   if detection_method == 'Change Point Detection':
     changepoints = load_changepoint_datasets(global_local_choice)
-    changepoints = changepoints.drop(changepoints.columns[[0]],axis = 1)
-    changepoints.columns =['Change']
+    changepoints = changepoints.drop(changepoints.columns[[0]], axis=1)
+    changepoints.columns = ['Change']
     changepoints["Change"] = changepoints["Change"].astype('str')
     changepoints = list(changepoints['Change'])
     for x in changepoints:
-      fig.add_vline(x= x, line_width=5, line_color="red", opacity=0.3)
+      fig.add_vline(x=x, line_width=5, line_color="red", opacity=0.3)
 
-                                    
   fig['layout']['yaxis2'].update(title='Volume of Sentiment')
 
   fig['layout']['xaxis2'].update(rangeslider_visible=True,
                                  rangeslider_thickness=0.1)
-                           
-  fig.update_layout(legend=dict(groupclick="toggleitem"),)
-                           
+
+  fig.update_layout(legend=dict(groupclick="toggleitem"), )
+
   return fig
+
+
+def read_price_change_data(category, subcat, detection_method):
+  # if detection_method == "Change Point Detection":
+  # 	dates_monthy = ['2020-01'] # delise add data here
+  # 	dates_yearly = ['2020-01']
+  # else:
+  dates_yearly = pd.read_json(f'data/price_change_data/{category}-yearly.json')
+  dates_yr = dates_yearly[subcat]
+  if category != 'grocery':
+    dates_monthly = pd.read_json(
+      f'data/price_change_data/{category}-monthly.json')
+    dates_mth = dates_monthly[subcat]
+    return dates_yr, dates_mth
+  return dates_yr
+
+
+def render_significant_dates(fig, dates, detection_method, color):
+  for date in dates:
+    fig.add_vline(x=date, line_width=5, line_color=color, opacity=0.3)

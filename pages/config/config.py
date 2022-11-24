@@ -1,15 +1,16 @@
 YEAR_RANGE = [i for i in range(1989, 2020)]
 
 TRADE_STATS = [
-  'Agricultural Raw Materials', 'Animals'
-  'Capital Goods'
-  'Chemicals'
-  'Consumer Goods'
+  'Agricultural Raw Materials',
+  'Animal'
+  'Capital goods'
+  'Chemical'
+  'Consumer goods'
   'Food Products'
   'Food'
   'Footwear'
   'Fuels'
-  'Intermeidate Goods'
+  'Intermediate goods'
   'Mach and Elec'
   'Machinery and Transport Equipment'
   'Manufactures'
@@ -18,7 +19,7 @@ TRADE_STATS = [
   'Miscellaneous'
   'Ores and Metals'
   'Plastic or Rubber'
-  'Raw Materials'
+  'Raw materials'
   'Stone and Glass'
   'Textiles and Clothing'
   'Textiles'

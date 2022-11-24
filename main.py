@@ -16,14 +16,11 @@ app.config.suppress_callback_exceptions = True
 
 from pages import consumerPricesPage, backgroundInformationPage, energyPricesPage, wageTrackerPage, groceryPricesPage, tradePage
 
-
-
 consumer_prices_page_layout = consumerPricesPage.layout(prodcode=cpi_list)
 energy_prices_layout = energyPricesPage.layout(prodcode=energy_list)
 wage_tracker_layout = wageTrackerPage.layout()
 background_information_layout = backgroundInformationPage.layout(prodcode=pc_list)
 grocery_prices_layout = groceryPricesPage.layout(prodcode=grocery_list)
-# trade_page_layout = tradePage.layout()
 
 # ------------ APP LAYOUT -----------------
 app.layout = html.Div(
@@ -91,8 +88,6 @@ def display_page(pathname):
     return grocery_prices_layout
   elif pathname == '/overview-of-project':
     return background_information_layout
-  # elif pathname == '/trade-stats':
-  #   return trade_page_layout
 
 
 # ------------- RUN APP -------------------

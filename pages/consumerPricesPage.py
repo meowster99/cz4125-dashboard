@@ -2,21 +2,24 @@
 Renders the CPI information/ related charts on the page.
 """
 
-from dash import Dash, html, dcc, Input, Output, dash_table, callback
-import dash
-import plotly.express as px
-import pandas as pd
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-from plotly.colors import n_colors
 import re
-import numpy as np
-from statsmodels.tsa.api import ExponentialSmoothing, SimpleExpSmoothing, Holt
-import utils, styles
+
+import dash
 import dash_daq as daq
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import Dash, Input, Output, callback, dash_table, dcc, html
+from plotly.colors import n_colors
+from plotly.subplots import make_subplots
+from statsmodels.tsa.api import ExponentialSmoothing, Holt, SimpleExpSmoothing
+
+import styles
+import utils
 from pages.config.config import YEAR_RANGE
 
- # TODO: @chin voon, move your geospatial trade charts related to CPI here
+# TODO: @chin voon, move your geospatial trade charts related to CPI here
 
 dash.register_page(__name__,
                    name='Consumer Price Index',
@@ -124,38 +127,29 @@ def layout(prodcode=['Food']):
         id='cpival',
         responsive=False,
       ),
-      html.Div(style={"width": "25%"},
-               children=[
-                html.H1(children="Geospatial graph of Exports and Imports"),
-                html.Div(style={"width": "25%"},
-                         children=[dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown')],
-                        ),
-                html.Div(style={"width": "25%"},
-                         children=[dcc.Dropdown(prodcode, 'Food', id='prodcode-network-dropdown')],
-                        ),
-                html.Div(children=[
-                    dcc.RadioItems(
-                    ['Export', 'Import'], 'Export', id='ind-network-dropdown')
-                ],
-                        ),
-            ]),
-      html.Div([
-          html.Div(style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '50%'
-              },
-                   children=[dcc.Graph(id='geospatial-network')],
-              ),
-          
-          html.Div(style={
-                'display': 'inline-block',
-                "margin": 0,
-                'width': '50%'
-              },
-                   children=[dcc.Graph(id='sunburst')],
-              )
-      ])
+      html.Div(children=[
+        html.H1(children="Geospatial graph of Exports and Imports"),
+        html.Div(children=[
+          dcc.Dropdown(YEAR_RANGE, 2019, id='year-network-dropdown'),
+          dcc.Dropdown(prodcode, prodcode[0], id='prodcode-network-dropdown'),
+          html.Div(children=[
+            dcc.RadioItems(
+              ['Export', 'Import'], 'Export', id='ind-network-dropdown')
+          ]),
+        ],
+                 style={"width": "25%"})
+      ],
+               className="geospatial-options"),
+      html.Div(children=[
+        html.Div(children=[dcc.Graph(id='geospatial-network')], ),
+        html.Div(children=[dcc.Graph(id='sunburst')], ),
+      ],
+               style={
+                 'display': 'inline-block',
+                 "margin": 0,
+                 'width': '100%'
+               },
+               className="geospatial-graph"),
     ])
 
 
@@ -247,13 +241,24 @@ def cpi(global_local_choice, maincat, predict, detection_method):
                              marker_color=styles.colors['blue']),
                   row=1,
                   col=1)
-
+    if detection_method != 'Event Tagging':
+      dates_yearly, dates_monthly = utils.read_price_change_data(
+        'cpi', maincat, detection_method)
+      fig = utils.render_significant_dates(fig,
+                                           dates_monthly,
+                                           detection_method,
+                                           color=styles.colors['yellow'])
+      fig = utils.render_significant_dates(fig,
+                                           dates_yearly,
+                                           detection_method,
+                                           color=styles.colors['yellowgreen'])
+      
     fig = utils.add_sentiment_traces('value', temp_sentiment_df, merged_df,
                                      global_local_choice, detection_method,
-                                     fig)
+                                       fig)
 
     # fig.update_xaxes(rangeslider_visible=True, )
-    fig.update_xaxes(range=['2019-01', '2021-10'])
+    fig.update_xaxes(range=['2016-01', '2021-10'])
     fig['layout']['yaxis1'].update(title='CPI')
     fig.update_layout(height=height, )
 
