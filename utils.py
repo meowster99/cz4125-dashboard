@@ -280,10 +280,10 @@ def read_price_change_data(category, maincat, subcat, detection_method):
   #   the output are all integers and only the years
   else:
     dates_yearly = pd.read_json(f'data/price_change_data/{category}-yearly.json')
-    dates_yr = dates_yearly[subcat]
+    dates_yr = dates_yearly[maincat]
     if category != 'grocery':
       dates_monthly = pd.read_json(f'data/price_change_data/{category}-monthly.json')
-      dates_mth = dates_monthly[subcat]
+      dates_mth = dates_monthly[maincat]
       return dates_yr, dates_mth
     return dates_yr
 
@@ -300,6 +300,7 @@ def get_top_headlines(choice):
     events['hl'] = df.true_headline.to_list()
     events['date'] = df.published_on.to_list()
     events['url'] = df.url.to_list()
+    events['info'] = df.Text.to_list()
     return events
   else:
     global_events = {}
@@ -310,6 +311,8 @@ def get_top_headlines(choice):
     elif choice=='By Measures of Economic Dependency':
       gdf = pd.read_csv('data/top_headlines/top_headlines_global_without_sentiments.csv').drop_duplicates(subset='true_headline')
       ldf = pd.read_csv('data/top_headlines/top_headlines_local_without_sentiments.csv').drop_duplicates(subset='true_headline')
+      global_events['info'] = ldf.mean_score.to_list()
+      local_events['info'] = gdf.mean_score.to_list()
     global_events['hl'] = gdf.true_headline.to_list()
     global_events['date'] = gdf.published_on.to_list()
     global_events['url'] = gdf.url.to_list()

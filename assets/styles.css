@@ -37,7 +37,7 @@
     top: 50px;
     right: 20px;
     max-height: 850px;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     /* scroll-snap-type: y mandatory; */
 }
 .content-box-sidebar {
