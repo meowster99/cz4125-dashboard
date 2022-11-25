@@ -158,18 +158,25 @@ def filter_by_query_term(global_local_choice, sentiment_df, filters):
 
 def get_technique_information(detection_method):
   if detection_method == 'Anomaly Detection':
-    return html.P(
+    return [html.P(
       'Employs the LevelShiftAD detector to track the difference between median values at two sliding windows of size 30 thus identifying the anomalies across datapoints.',
-      className='subtext')
+      className='subtext'),
+            html.P(
+      'Significant price changes are in orange & red on the price chart. They reflect the largest percentage changes in values over time.',
+      className='subtext'),
+            ]
   elif detection_method == 'Event Tagging':
-    return html.P(
+    return [html.P(
       'Various macroeconomic events mentioned in the relevant news articles have been labelled on the chart.',
-      className='subtext')
+      className='subtext'),
+            html.P(
+      'Significant price changes are in orange & red on the price chart. They reflect the largest percentage changes in values over time.',
+      className='subtext'),]
   elif detection_method == 'Change Point Detection':
-    return html.P(
+    return [html.P(
       'Uses the Pruned Exact Linear Time algorithm to detect change points',
-      className='subtext')
-
+      className='subtext'),
+]
 
 def add_sentiment_traces(target_col, temp_sentiment_df, merged_df,
                          global_local_choice, detection_method, fig):
@@ -252,27 +259,26 @@ def add_sentiment_traces(target_col, temp_sentiment_df, merged_df,
   return fig
 
 def get_changepoints_subplot(category, maincat):
-    if category == "energy":
-     data = pd.read_csv('data/pages_changepoints/Energy_Changepoints.csv')
-     data = data["Energy"].str[-4:]
-     data = data.astype('str')
-     changepoints_dates = list(data["Energy"])
-    elif category == "grocery":
-     data = pd.read_csv('data/pages_changepoints/Groceries_Changepoints.csv')
-    #  data = list(data[maincat])
-     data = data.dropna()
-     data = data.astype('str')
-     changepoints_dates = list(data)
-    elif category == "cpi":
-     data = pd.read_csv('data/pages_changepoints/CPI_Changepoints.csv')
-    #  data = list(data[maincat])
-     data = data.dropna()
-     data = data[maincat].str[-4:]
-     data = data.astype('str')
-     changepoints_dates = list(data)
-    else:
-     changepoints_dates = []
-    return changepoints_dates
+  if category == "energy":
+    data = pd.read_csv('data/pages_changepoints/energy_Changepoints.csv', header=None)
+    data[0] = pd.to_datetime(data[0]).astype('str')
+    changepoints_dates = data[0].to_list()
+  elif category == "grocery":
+    data = pd.read_csv('data/pages_changepoints/grocery_Changepoints.csv')
+  #  data = list(data[maincat])
+    data = data.dropna()
+    data = data.astype('str')
+    changepoints_dates = list(data)
+  elif category == "cpi":
+    data = pd.read_csv('data/pages_changepoints/cpi_Changepoints.csv')
+  #  data = list(data[maincat])
+    data = data.dropna()
+    data = pd.to_datetime(data[maincat])
+    data = data.astype('str')
+    changepoints_dates = list(data)
+  else:
+    changepoints_dates = []
+  return changepoints_dates
 
 def read_price_change_data(category, maincat, subcat, detection_method):
   if detection_method == "Change Point Detection":
@@ -280,17 +286,24 @@ def read_price_change_data(category, maincat, subcat, detection_method):
   #   the output are all integers and only the years
   else:
     dates_yearly = pd.read_json(f'data/price_change_data/{category}-yearly.json')
-    dates_yr = dates_yearly[maincat]
-    if category != 'grocery':
+    if category=='grocery':
+      dates_yr = []
+      for subcategory in subcat:
+        dates_yr.append(dates_yearly[subcategory].to_list())
+    else:
       dates_monthly = pd.read_json(f'data/price_change_data/{category}-monthly.json')
+      dates_yr = dates_yearly[maincat]
       dates_mth = dates_monthly[maincat]
       return dates_yr, dates_mth
-    return dates_yr
+  return dates_yr
 
 
-def render_significant_dates(fig, dates, detection_method, color):
+def render_significant_dates(fig, dates, detection_method, color, text=None):
   for date in dates:
-    fig.add_vline(x=date, line_width=5, line_color=color, opacity=0.3)
+    if text is not None:
+      fig.add_vline(x=date, line_width=5, line_color=color, opacity=0.3, annotation_text=text)
+    else:
+      fig.add_vline(x=date, line_width=5, line_color=color, opacity=0.3)
   return fig
 
 def get_top_headlines(choice):
@@ -320,3 +333,18 @@ def get_top_headlines(choice):
     local_events['date'] = ldf.published_on.to_list()
     local_events['url'] = ldf.url.to_list()
     return global_events, local_events
+  
+def view_events_on_chart(fig, selection_type, navbar_gl):
+  if selection_type=='Known Significant Events':
+    events = get_top_headlines(selection_type)
+    events['date'] = pd.to_datetime(events['date'], format='%Y')
+  else:
+    global_events, local_events = get_top_headlines(selection_type)
+    if navbar_gl == 'Global':
+      events = global_events
+      events['date'] = pd.to_datetime(events['date'])
+    else:
+      events = local_events
+      events['date'] = pd.to_datetime(events['date'])
+  return [x[:15] for x in events['hl']], events['date']
+  

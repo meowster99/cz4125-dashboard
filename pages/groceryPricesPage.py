@@ -150,8 +150,9 @@ def render_information(detection_method):
 
 @callback(Output('grocprices', 'figure'), Input('slct_maincat', 'value'),
           Input('global_local', 'value'), Input('toggle-prediction', 'value'),
-          Input('detection_method', 'value'))
-def grocgraph(maincat, global_local_choice, predict, detection_method):
+          Input('detection_method', 'value'), Input('selection_type', 'value'), 
+              Input('navbar_gl', 'value'))
+def grocgraph(maincat, global_local_choice, predict, detection_method, selection_type, navbar_gl):
   df = groceries.copy()
   df = df[df['maincat'] == maincat]
 
@@ -229,11 +230,24 @@ def grocgraph(maincat, global_local_choice, predict, detection_method):
                     row=1,
                     col=1)
       j += 1
-
+      
+    if detection_method != 'Change Point Detection':
+      dates_yearly =  utils.read_price_change_data(
+        'grocery', maincat, df['subcat'].unique(), detection_method)
+      
+    elif detection_method == 'Change Point Detection':
+      dates_yearly = utils.read_price_change_data(
+        'cpi', maincat, [], detection_method)
+    fig = utils.render_significant_dates(fig,
+                                           dates_yearly,
+                                           detection_method,
+                                           color=styles.colors['otherred'])
+      
     fig = utils.add_sentiment_traces('value', temp_sentiment_df, merged_df,
                                      global_local_choice, detection_method,
                                      fig)
-
+    headlines, main_dates = utils.view_events_on_chart(fig, selection_type, navbar_gl)
+    fig = utils.render_significant_dates(fig, main_dates, '', styles.colors['purple'])
     # fig.update_xaxes(rangeslider_visible=True, )
     fig.update_xaxes(range=['2010-01', '2021-01'])
     fig['layout']['yaxis1'].update(title='Grocery Prices')

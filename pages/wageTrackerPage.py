@@ -112,8 +112,9 @@ def render_information(detection_method):
 
 @callback(Output('wages', 'figure'), Input('slct_industry', 'value'),
           Input('global_local', 'value'), Input('toggle-prediction', 'value'),
-          Input('detection_method', 'value'))
-def wageupdate(ind, global_local_choice, predict, detection_method):
+          Input('detection_method', 'value'), Input('selection_type', 'value'), 
+              Input('navbar_gl', 'value'))
+def wageupdate(ind, global_local_choice, predict, detection_method, selection_type, navbar_gl):
   df = wages.sort_values(by='Data Series').copy()
   if ind != 'Real Wage vs Average Wage':
     male_name = str(ind) + ' - Male '
@@ -286,7 +287,8 @@ def wageupdate(ind, global_local_choice, predict, detection_method):
     fig = utils.add_sentiment_traces(target_col, temp_sentiment_df, merged_df,
                                      global_local_choice, detection_method,
                                      fig)
-
+    headlines, main_dates = utils.view_events_on_chart(fig, selection_type, navbar_gl)
+    fig = utils.render_significant_dates(fig, main_dates, '', styles.colors['purple'])
     # fig.update_xaxes(rangeslider_visible=True, )
     fig.update_xaxes(range=['2010-01', '2021-10'])
     fig['layout']['yaxis1'].update(title='Salary (SGD)')

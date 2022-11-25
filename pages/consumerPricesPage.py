@@ -175,8 +175,9 @@ def render_information(detection_method):
 
 @callback(Output('cpival', 'figure'), Input('global_local', 'value'),
           Input('slct_cpicat', 'value'), Input('toggle-prediction', 'value'),
-          Input('detection_method', 'value'))
-def cpi(global_local_choice, maincat, predict, detection_method):
+          Input('detection_method', 'value'), Input('selection_type', 'value'), 
+              Input('navbar_gl', 'value'))
+def cpi(global_local_choice, maincat, predict, detection_method, selection_type, navbar_gl):
   df = cpidf.copy()
   df['value'] = df['value'].apply(lambda x: np.nan if x == ' ' else x)
   df = df.dropna()
@@ -225,7 +226,7 @@ def cpi(global_local_choice, maincat, predict, detection_method):
       df = utils.prepare_for_plotting(df, 'month', to_datetime=True)
     except:
       df = utils.prepare_for_plotting(df, 'month', to_datetime=False)
-    df = df[df.date > '2010-01']
+    # df = df[df.date > '2010-01']
 
     merged_df = utils.display_tagged_events(global_local_choice, df)
     # merged_df['value'] = merged_df['value'].max()
@@ -247,21 +248,27 @@ def cpi(global_local_choice, maincat, predict, detection_method):
                              marker_color=styles.colors['blue']),
                   row=1,
                   col=1)
-    if detection_method != 'Event Tagging':
+    if detection_method != 'Change Point Detection':
       dates_yearly, dates_monthly = utils.read_price_change_data(
         'cpi', maincat, [], detection_method)
       fig = utils.render_significant_dates(fig,
-                                           dates_monthly,
-                                           detection_method,
-                                           color=styles.colors['yellow'])
-      fig = utils.render_significant_dates(fig,
-                                           dates_yearly,
-                                           detection_method,
-                                           color=styles.colors['yellowgreen'])
+                                      dates_monthly,
+                                      detection_method,
+                                      color=styles.colors['orange'])
+      
+    elif detection_method == 'Change Point Detection':
+      dates_yearly = utils.read_price_change_data(
+        'cpi', maincat, [], detection_method)
+    fig = utils.render_significant_dates(fig,
+                                          dates_yearly,
+                                          detection_method,
+                                          color=styles.colors['otherred'])
       
     fig = utils.add_sentiment_traces('value', temp_sentiment_df, merged_df,
                                      global_local_choice, detection_method,
                                        fig)
+    headlines, main_dates = utils.view_events_on_chart(fig, selection_type, navbar_gl)
+    fig = utils.render_significant_dates(fig, main_dates, '', styles.colors['purple'])
 
     # fig.update_xaxes(rangeslider_visible=True, )
     fig.update_xaxes(range=['2012-01', '2021-10'])

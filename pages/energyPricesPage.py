@@ -158,8 +158,9 @@ def render_information(detection_method):
 
 @callback(Output('energyprices', 'figure'), Input('global_local', 'value'),
           Input('toggle-prediction', 'value'),
-          Input('detection_method', 'value'))
-def energyprices(global_local_choice, predict, detection_method):
+          Input('detection_method', 'value'), Input('selection_type', 'value'), 
+              Input('navbar_gl', 'value'))
+def energyprices(global_local_choice, predict, detection_method, selection_type, navbar_gl):
   df = energy.copy()
 
   if predict:
@@ -219,12 +220,27 @@ def energyprices(global_local_choice, predict, detection_method):
                              marker_color=styles.colors['blue']),
                   row=1,
                   col=1)
-
+    if detection_method != 'Change Point Detection':
+      dates_yearly, dates_monthly = utils.read_price_change_data(
+        'energy', 0, [], detection_method)
+      fig = utils.render_significant_dates(fig,
+                                           dates_monthly,
+                                           detection_method,
+                                           color=styles.colors['orange'])
+    elif detection_method == 'Change Point Detection':
+      dates_yearly = utils.read_price_change_data(
+        'energy', '', [], detection_method)
+    fig = utils.render_significant_dates(fig,
+                                           dates_yearly,
+                                           detection_method,
+                                           color=styles.colors['otherred'])
+      
     fig = utils.add_sentiment_traces('Energy (Cents Per Kilowatt Hour)',
                                      temp_sentiment_df, merged_df,
                                      global_local_choice, detection_method,
                                      fig)
-
+    headlines, main_dates = utils.view_events_on_chart(fig, selection_type, navbar_gl)
+    fig = utils.render_significant_dates(fig, main_dates, '', styles.colors['purple'])
     # fig.update_xaxes(rangeslider_visible=True, )
     fig.update_xaxes(range=['2012-01', '2021-10'])
     fig['layout']['yaxis1'].update(title='Energy Prices (cents per kwh)')

@@ -7,9 +7,8 @@ import plotly.graph_objects as go
 from plotly.colors import n_colors
 import re
 import random
-import styles
+import styles, utils
 from utils import pc_list, cpi_list, energy_list, grocery_list
-import utils
 
 app = Dash(__name__, )
 server = app.server
@@ -33,23 +32,49 @@ app.layout = html.Div(
       children=[
         html.Div(
           className='content-box-sidebar',
-          children=html.Div(
+          children=[
+            html.Div(
             className='',
             children=[
               html.H2(
                 'Top Economic Events',
                 className='content-box-header row',
               ),
-              dcc.Dropdown(
-               id="selection_type",
-               value='Known Significant Events',
-               options=['Known Significant Events', 'By Sentiment Techniques', 'By Measures of Economic Dependency',],
-               multi=False,
-              ),
-              html.Div(id='navbar-content')
-            ],
-          )),
-      ]),
+              html.Div(
+                className='filter-options',
+                children=[
+                  dcc.Dropdown(
+                    style={
+                      "width": '420px',
+                      'margin-top': '5px',
+                    },
+                    id="selection_type",
+                    value='Known Significant Events',
+                    options=['Known Significant Events', 'By Sentiment Techniques', 'By Measures of Economic Dependency',],
+                    multi=False,
+                  ),
+                  html.Div(
+                    id='gl_choices',
+                    style={
+                      'display': 'none'
+                    },
+                    children=[
+                      html.P('News Type: '),
+                      dcc.RadioItems(
+                        ['Global', 'Local'],
+                        'Global',
+                        id='navbar_gl',
+                      ),
+                    ]),
+                ]),
+              ]),
+              html.P(
+              'These events are shown in purple on the chart.',
+              id='descriptor-text',
+              className='subtext'),
+              html.Div(id='navbar-content'),
+            ]),
+    ]),
     html.Div(
       className='dashboard-header',
       children=[
@@ -58,8 +83,8 @@ app.layout = html.Div(
           style={'display': 'inline flex'},
           children=[
             html.Div(children=dcc.Link(f"{page['name']}",
-                                       className='default-button navbar-link',
-                                       href=page["relative_path"]))
+                                      className='default-button navbar-link',
+                                      href=page["relative_path"]))
             for page in dash.page_registry.values()
           ]),
       ]),
@@ -72,9 +97,17 @@ app.layout = html.Div(
              ])
   ])
 
-# ------------ NAVBAR LAYOUT --------------
-@app.callback(Output('navbar-content', 'children'), Input('selection_type', 'value'))
-def generate_top_headlines(selection_type):
+# ------------ NAVBAR LAYOUT -------------- 
+@app.callback(Output('descriptor-text', 'style'),
+              Input('url', 'pathname'))
+def render_desription_text(pathname):
+  if pathname == '/overview-of-project':
+    return {'display': 'none'}
+@app.callback(Output('navbar-content', 'children'), 
+              Input('selection_type', 'value'), 
+              Input('navbar_gl', 'value')
+              )
+def generate_top_headlines(selection_type, global_local):
     if selection_type == 'Known Significant Events':
       events = utils.get_top_headlines(selection_type)
       return [html.Div(
@@ -91,15 +124,17 @@ def generate_top_headlines(selection_type):
       ) for i in range(len(events['hl']))]
     else:
       global_events, local_events = utils.get_top_headlines(selection_type)
-      return [html.Div(
-        className='content-box-list',
-        children=[
-          html.H3(html.A(global_events['hl'][i] + ' (global)', href=global_events['url'][i], target='_blank')),
-          html.P(global_events['date'][i]),
-          # html.P(global_events['url'][i]),
-        ]
-      ) for i in range(len(global_events['hl']))] 
-      + [html.Div(
+      if global_local == 'Global':
+        return [html.Div(
+          className='content-box-list',
+          children=[
+            html.H3(html.A(global_events['hl'][i] + ' (global)', href=global_events['url'][i], target='_blank')),
+            html.P(global_events['date'][i]),
+            # html.P(global_events['url'][i]),
+          ]
+        ) for i in range(len(global_events['hl']))] 
+      else:
+        return [html.Div(
         className='content-box-list',
         children=[
           html.H3(html.A(local_events['hl'][i] + ' (local)', href=local_events['url'][i], target='_blank')),
@@ -108,6 +143,17 @@ def generate_top_headlines(selection_type):
         ]
       ) for i in range(len(local_events['hl']))]
 
+@app.callback(Output('gl_choices', 'style'),
+          Input('selection_type', 'value'))
+def render_navbar_options(selection_type):
+  if selection_type == 'Known Significant Events':
+    return {'display': 'none'}
+  else:
+    return {
+      'margin-left': '50px',
+      'margin-top': '0px',
+      'display': 'initial'
+      }
 
 # # ----------- PAGE NAVIGATION -------------
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
